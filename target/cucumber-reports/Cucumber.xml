@@ -1,3 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.109" tests="0" skipped="0" failures="0" errors="0">
+<testsuite name="Cucumber" time="9.944" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Verify user checkout functionality" name="Verify user is able to checkout or not - Example #1.1" time="9.579">
+<failure/>
+<system-out><![CDATA[
+Given User is on the home page..............................................undefined
+And the page title is "Home Page"...........................................skipped
+And User clicks on the header sign-in link..................................skipped
+And "Customer Login" page is displayed......................................skipped
+When User enters the email address "surajnaik345@gmail.com" and password "Test12345".skipped
+And User clicks on the sign-in button.......................................skipped
+Then User should be logged in...............................................skipped
+When User clicks on shop new yoga button....................................skipped
+Then "New Luma Yoga Collection" page is displayed...........................skipped
+And Click on the required Gwen Drawstring Bike Short........................skipped
+And the required pant page is displayed.....................................skipped
+And Select 29 and Orange....................................................skipped
+And Click on Add to card button.............................................skipped
+Then button text changes to "Added".........................................skipped
+And User should scroll to the top...........................................skipped
+And Click on cart...........................................................skipped
+And Click on proceed to checkout button.....................................skipped
+Then checkout page is displayed.............................................skipped
+And user fills in all the parameters Suraj,Naik,Teknotrait solutions Pvt. Ltd,Linwood Boulevard (Kansas City, Missouri),Missouri,Kansas,143107,United states and 9732123456.skipped
+And Select a shipping method................................................skipped
+When Clicked on next button.................................................skipped
+Then "Payment Method" page is displayed.....................................skipped
+And click on place order....................................................skipped
+And "Thank you for your purchase!" screen should be dispalyed with the order number.skipped
+]]></system-out>
+</testcase>
 </testsuite>
