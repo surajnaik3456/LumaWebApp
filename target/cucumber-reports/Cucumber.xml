@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="29.586" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Verify user checkout functionality" name="Verify user is able to checkout or not - Example #1.1" time="29.193">
+<testsuite name="Cucumber" time="0.371" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Verify new user checkout functionality" name="Verify new user is able to checkout or not - Example #1.1" time="0.056">
+<failure/>
 <system-out><![CDATA[
 Given User is on the home page..............................................passed
 And the page title is "Home Page"...........................................passed
-And User clicks on the header sign-in link..................................passed
-And "Customer Login" page is displayed......................................passed
-When User enters the email address "Test121@yopmail.com" and password "Test12345".passed
-And User clicks on the sign-in button.......................................passed
-Then User should be logged in...............................................passed
-When User clicks on shop new yoga button....................................passed
-Then the "New Luma Yoga Collection" page is displayed.......................passed
-And Click on the required Gwen Drawstring Bike Short........................passed
-And the required Gwen Drawstring Bike Short page is displayed...............passed
-And Select 29 and Orange....................................................passed
-And Click on Add to card button.............................................passed
-Then button text changes to Added...........................................passed
-And User should scroll to the top...........................................passed
-And Click on cart...........................................................passed
-And Click on proceed to checkout button.....................................passed
-Then checkout page is displayed.............................................passed
-And Click on add new address................................................passed
-And the shipping address pop-up appears.....................................passed
-And user fills in all the parameters Teknotrait solutions Pvt. Ltd,Linwood Boulevard Kansas City Missouri),Missouri,Victoria,12345,Australia and 9732123456.passed
-And Click on ship here......................................................passed
-When Clicked on next button.................................................passed
-Then "Payment Method" page is getting displayed.............................passed
-And click on place order....................................................passed
-And "Thank you for your purchase!" screen should be displayed with the order number.passed
+And User clicks on the header create an account link........................undefined
+And Create New Customer Account page is displayed...........................skipped
+When User enters the Test1,23,test011@yopmail.com,tester123 and tester123...skipped
+And User clicks on the create account button................................skipped
+Then "Thank you for registering with Main Website Store." shows up..........skipped
+And User clicks on Luma logo................................................skipped
+When User clicks on shop new yoga button....................................skipped
+Then the "New Luma Yoga Collection" page is displayed.......................skipped
+And Click on the required Ida Workout Parachute Pant........................skipped
+And the required Ida Workout Parachute Pant page is displayed...............skipped
+And Select 29 and Black.....................................................skipped
+And Click on Add to card button.............................................skipped
+Then button text changes to Added...........................................skipped
+And User should scroll to the top...........................................skipped
+And Click on cart...........................................................skipped
+And Click on proceed to checkout button.....................................skipped
+Then checkout page is displayed.............................................skipped
+And user fills in all the parameters Teknotrait solutions Pvt. Ltd,Linwood Boulevard Kansas City Missouri,Missouri,Arizona,12345,United States and 9732123456.skipped
+And Select a Fixed method...................................................skipped
+When Clicked on next button.................................................skipped
+Then "Payment Method" page is getting displayed.............................skipped
+And click on place order....................................................skipped
+And "Thank you for your purchase!" screen should be displayed with the order number.skipped
 ]]></system-out>
 </testcase>
 </testsuite>

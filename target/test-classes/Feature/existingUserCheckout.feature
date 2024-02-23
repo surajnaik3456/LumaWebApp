@@ -1,5 +1,5 @@
-@checkout
-Feature: Verify user checkout functionality
+@ExistingUserCheckout
+Feature: Verify existing user checkout functionality
 
   Background: 
     Given User is on the home page
@@ -11,7 +11,7 @@ Feature: Verify user checkout functionality
     Then User should be logged in
 
   @CheckoutFlow
-  Scenario Outline: Verify user is able to checkout or not
+  Scenario Outline: Verify existing user is able to checkout or not
     When User clicks on shop new yoga button
     Then the "New Luma Yoga Collection" page is displayed
     And Click on the required <yogaPant>
