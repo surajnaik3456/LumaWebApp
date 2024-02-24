@@ -1,4 +1,4 @@
-@ExistingUserCheckout
+@ExistingUserCheckout @Suite
 Feature: Verify existing user checkout functionality
 
   Background: 
@@ -10,7 +10,7 @@ Feature: Verify existing user checkout functionality
     And User clicks on the sign-in button
     Then User should be logged in
 
-  @CheckoutFlow
+  @ExistingUserCheckoutFlow
   Scenario Outline: Verify existing user is able to checkout or not
     When User clicks on shop new yoga button
     Then the "New Luma Yoga Collection" page is displayed

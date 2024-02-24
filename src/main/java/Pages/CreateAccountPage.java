@@ -20,6 +20,17 @@ public class CreateAccountPage extends TestBase{
 	{
 		driver.findElement(createAccount).click();
 	}
+	public void createAccountPgDisplays()
+	{
+		if (driver.findElement(createAccountPg).isDisplayed())
+		{
+			System.out.println("Create account page is displayed...");
+		}
+		else
+		{
+			System.out.println("Create account page is not displayed...");	
+		}
+	}
 	public void enterFirstName(String firstname)
 	{
 		driver.findElement(firstNameField).sendKeys(firstname);

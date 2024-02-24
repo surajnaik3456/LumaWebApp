@@ -14,7 +14,7 @@ import TestBase.TestBase;
 import io.cucumber.java.en.*;
 
 
-public class CheckOutCheck extends TestBase{
+public class ExistigUserCheckOutCheck extends TestBase{
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	HomePage homePg = new HomePage();
 	LoginPage loginPg = new LoginPage();
@@ -59,7 +59,8 @@ public class CheckOutCheck extends TestBase{
 		homePg.scrollToCart();
 	}
 	@Then("Click on cart")
-	public void click_on_cart() {
+	public void click_on_cart() throws InterruptedException {
+		Thread.sleep(2000);
 		homePg.clickCart();
 	}
 	@Then("Click on proceed to checkout button")

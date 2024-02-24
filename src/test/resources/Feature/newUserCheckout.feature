@@ -1,7 +1,7 @@
 @NewUserCheckout
 Feature: Verify new user checkout functionality
 
-  @CheckoutFlow
+  @NewUserCheckoutFlow
   Scenario Outline: Verify new user is able to checkout or not
     Given User is on the home page
     And the page title is "Home Page"
@@ -31,4 +31,4 @@ Feature: Verify new user checkout functionality
 
     Examples: 
       | firstname | lastname | email               | password  | confirmPassword | yogaPant                   | size | colour | company                       | streetAddress                          | city     | state   | zip   | country       | phoneNumber | shipping |
-      | Test1     |       23 | test011@yopmail.com | tester123 | tester123       | Ida Workout Parachute Pant |   29 | Black  | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri | Missouri | Arizona | 12345 | United States |  9732123456 | Fixed    |
+      | Test1     |       23 | test212@yopmail.com | Test12345 | Test12345       | Ida Workout Parachute Pant |   29 | Black  | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri | Missouri | Arizona | 12345 | United States |  9732123456 | Fixed    |

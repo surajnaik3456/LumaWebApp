@@ -1,6 +1,9 @@
 package Pages;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,6 +21,7 @@ public class HomePage extends TestBase{
 	By shopNewYogaBtn = By.cssSelector("span.action.more.button");
 	By yogaCollectionPg = By.xpath("//span[text()='New Luma Yoga Collection']");
 	By addToCart = By.xpath("//span[text()='Add to Cart']");
+	By cartCount = By.xpath("//span[text()='1']");
 	By cart = By.cssSelector("a.action.showcart");
 	By checkoutBtn = By.cssSelector("button#top-cart-btn-checkout");
 	By checkOutPage = By.xpath("//div[text()='Shipping Address']");
@@ -35,8 +39,12 @@ public class HomePage extends TestBase{
 	By placeOrder = By.xpath("//span[text()='Place Order']");
 	By orderNumb = By.cssSelector("a.order-number");
 	By paymentPg = By.xpath("//div[text()='Payment Method']");
+	By sortDropdown = By.cssSelector("select#sorter");
 	
-	
+	public void clickLogo()
+    {
+    	driver.findElement(logo).click();
+    }
 	public void verifyLogo()
 	{
 		if(driver.findElement(logo).isDisplayed())
@@ -95,6 +103,7 @@ public class HomePage extends TestBase{
     }
     public void clickCart()
     {
+    	wait.until(ExpectedConditions.elementToBeClickable(cartCount));
     	driver.findElement(cart).click();
     }
     public void clickCheckOutBtn()
@@ -186,5 +195,66 @@ public void orderPlacedNumb()
 public void paymentPageDisplayed()
 {
 	driver.findElement(paymentPg).isDisplayed();
+}
+public void clickDropdown()
+{
+	driver.findElement(sortDropdown).click();
+}
+public void selectSortByPrice()
+{
+	WebElement sortDropdownSelect = driver.findElement(sortDropdown);
+	Select sc = new Select(sortDropdownSelect);
+	sc.selectByValue("price");
+}
+public void sortingByPrice() 
+{
+	
+	List<WebElement> afterFilter = driver.findElements(By.xpath("//span[@class='price']"));
+	boolean isSorted = true;
+	for (int i = 0; i < 8; i++) {
+	    System.out.println(afterFilter.get(i).getText().replace("$", "").trim());
+	    String price1 = afterFilter.get(i).getText().replace("$", "").trim();
+	    String price2 = afterFilter.get(i + 1).getText().replace("$", "").trim();
+	    
+	    if (Double.parseDouble(price1) > Double.parseDouble(price2)) {
+	        isSorted = false;
+	        break;
+	    } else if (Double.parseDouble(price1) == Double.parseDouble(price2)) {
+	        continue; 
+	    }
+	}
+	if (isSorted) {
+	    System.out.println("Products are sorted by price (low to high).");
+	} else {
+	    System.out.println("Products are not sorted by price (low to high).");
+	}
+}
+public void sortingByProductName()
+{
+	List<WebElement> beforeSort= driver.findElements(By.xpath("//a[@class='product-item-link']"));
+	List<String> store1 = new ArrayList<String>();
+	for(WebElement store:beforeSort)
+	{
+		String data = store.getText();
+		store1.add(data);
+	}
+	List<String> temp = new ArrayList<String>();
+	temp.addAll(store1);
+	Collections.sort(temp);
+	if (temp.equals(store1))
+	{
+		 System.out.println("Products are sorted by name");
+	}
+	else
+	{
+		 System.out.println("Products are not sorted by name");
+	}
+}
+
+public void selectSortByProductName()
+{
+	WebElement sortDropdownSelect = driver.findElement(sortDropdown);
+	Select sc = new Select(sortDropdownSelect);
+	sc.selectByValue("name");
 }
 }
