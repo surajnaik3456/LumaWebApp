@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -40,6 +40,7 @@ public class HomePage extends TestBase{
 	By orderNumb = By.cssSelector("a.order-number");
 	By paymentPg = By.xpath("//div[text()='Payment Method']");
 	By sortDropdown = By.cssSelector("select#sorter");
+	By searchField = By.cssSelector("input#search");
 	
 	public void clickLogo()
     {
@@ -256,5 +257,61 @@ public void selectSortByProductName()
 	WebElement sortDropdownSelect = driver.findElement(sortDropdown);
 	Select sc = new Select(sortDropdownSelect);
 	sc.selectByValue("name");
+}
+public void clickSearchBox()
+{
+	driver.findElement(searchField).click();
+}
+public void enterRequiredProductInSearchBox(String name)
+{
+	driver.findElement(searchField).sendKeys(name);
+}
+public void checkSuggestionWithInitial(String initial)
+{
+	List<WebElement> suggestion = driver.findElements(By.xpath("//li[@role='option']"));
+	boolean allStartsWithInitial =true;
+	for(WebElement suggested : suggestion )
+	{
+		if (!suggested.getText().startsWith(initial))
+		{
+			allStartsWithInitial =false;
+			break;
+		}
+	}
+	Assert.assertTrue("All suggestions start with the initial: " +initial, allStartsWithInitial);
+}
+public void selectsOption(String selectSuggestion)
+{
+driver.findElement(By.xpath("//span[text()='"+selectSuggestion+"']")).click();
+}
+public void checkResultsForSelectedOptionPageDisplayed(String resultPageDisplayed)
+{
+	boolean expectedResultPage =true;
+	if(!driver.findElement(By.cssSelector("span.base")).getText().contains(resultPageDisplayed))
+	{
+		expectedResultPage=false;
+	}
+	Assert.assertTrue("Expected result page is not displayed ", expectedResultPage);
+}
+public void checkSkuNumber() 
+{
+	List<WebElement> resultedProducts = driver.findElements(By.cssSelector("a.product-item-link"));
+	boolean expectedSku =true;
+	for(WebElement check:resultedProducts)
+	{
+		wait.until(ExpectedConditions.elementToBeClickable(check)).click();
+		
+		if(!driver.findElement(By.xpath("//div[@itemprop='sku']")).getText().startsWith("M"))
+		{
+			expectedSku = false;
+			break;
+		}
+		else
+		{
+			driver.navigate().back();
+		}
+		
+	}
+	Assert.assertTrue("The SKU values of the resulted products do not start with 'M'", expectedSku);
 }
 }
