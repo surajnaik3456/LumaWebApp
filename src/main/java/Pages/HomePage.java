@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -41,6 +42,14 @@ public class HomePage extends TestBase{
 	By paymentPg = By.xpath("//div[text()='Payment Method']");
 	By sortDropdown = By.cssSelector("select#sorter");
 	By searchField = By.cssSelector("input#search");
+	By hotSellersSection = By.xpath("//h2[text()='Hot Sellers']");
+	By actionCompare = By.cssSelector("a.action.compare");
+	
+	//Variables used for product comparison
+	List<String> firstProduct = new ArrayList<String>();
+	List<String> secoundProduct = new ArrayList<String>();
+	List<String> firstProductInComparePage = new ArrayList<String>();
+	List<String> secoundProductInComparePage = new ArrayList<String>();
 	
 	public void clickLogo()
     {
@@ -313,5 +322,89 @@ public void checkSkuNumber()
 		
 	}
 	Assert.assertTrue("The SKU values of the resulted products do not start with 'M'", expectedSku);
+}
+public void scrollToHotSellerSection()
+{
+JavascriptExecutor js = (JavascriptExecutor)driver;
+WebElement hotSeller = driver.findElement(hotSellersSection);
+js.executeScript("arguments[0].scrollIntoView();", hotSeller);
+}
+public void addFirstProductToCompare(String product1)
+{
+	Actions actions = new Actions(driver);
+	WebElement productHover = driver.findElement(By.xpath("//a[@title='"+product1+"']"));
+	actions.moveToElement(productHover).perform();
+	driver.findElement(By.xpath("//a[@title='"+product1+"']/following::a[@class='action tocompare'][1]")).click();
+}
+public void verifyFirstProductAddedSuccessMsg(String product1)
+{
+	if(driver.findElement(By.xpath("//div[text()='You added product "+product1+" to the ']")).isDisplayed())
+	{
+		System.out.println("Product one added succesfully..");
+	}
+	else
+	{
+		System.out.println("Product is not getting added to compare list..");
+	}
+}
+public void addSecondProductToCompare(String product2)
+{
+	Actions actions = new Actions(driver);
+	WebElement productHover = driver.findElement(By.xpath("//a[@title='"+product2+"']"));
+	actions.moveToElement(productHover).perform();
+	driver.findElement(By.xpath("//a[@title='"+product2+"']/following::a[@class='action tocompare'][1]")).click();
+}
+public void verifySecondProductAddedSuccessMsg(String product2)
+{
+	if(driver.findElement(By.xpath("//div[text()='You added product "+product2+" to the ']")).isDisplayed())
+	{
+		System.out.println("Secound Product added succesfully..");
+	}
+	else
+	{
+		System.out.println("Product is not getting added to compare list..");
+	}
+}
+public void clickCompareProduct()
+{
+	driver.findElement(actionCompare).click();
+}
+public void verifyComparePageDisplays(String comparePgDisplayed)
+{
+	WebElement comparePg = driver.findElement(By.xpath("//span[text()='Compare Products']"));
+	Assert.assertEquals(comparePg.getText(), comparePgDisplayed);
+}
+
+public void verifyProductsAddedToComparePgAreTheSameProducts(String product1, String product2)
+{
+	driver.navigate().back();
+	driver.findElement(By.xpath("//a[@title='"+product1+"']")).click();
+
+	firstProduct.add(driver.findElement(By.cssSelector("div[itemprop='sku']")).getText());
+	firstProduct.add(driver.findElement(By.xpath("//span[text()='"+product1+"']")).getText());
+	firstProduct.add(driver.findElement(By.xpath("//div[@class='product attribute description']//following::p[1]")).getText());
+	System.out.println(firstProduct);
+	driver.navigate().back();
+	driver.findElement(By.xpath("//a[@title='"+product2+"']")).click();
+	
+	secoundProduct.add(driver.findElement(By.cssSelector("div[itemprop='sku']")).getText());
+	secoundProduct.add(driver.findElement(By.xpath("//span[text()='"+product2+"']")).getText());
+	secoundProduct.add(driver.findElement(By.xpath("//div[@class='product attribute description']//following::p[1]")).getText());
+	System.out.println(secoundProduct);
+	driver.navigate().back();
+	driver.findElement(actionCompare).click();
+	
+	firstProductInComparePage.add(driver.findElement(By.xpath("//tr/following::td[3]")).getText());
+	firstProductInComparePage.add(driver.findElement(By.xpath("//a[contains(text(),'"+product1+"')]")).getText());
+	firstProductInComparePage.add(driver.findElement(By.xpath("//tr/following::td[5]/div/p[1]")).getText());
+	System.out.println(firstProductInComparePage);
+	
+	secoundProductInComparePage.add(driver.findElement(By.xpath("//tr/following::td[4]")).getText());
+	secoundProductInComparePage.add(driver.findElement(By.xpath("//a[contains(text(),'"+product2+"')]")).getText());
+	secoundProductInComparePage.add(driver.findElement(By.xpath("//tr/following::td[6]/div/p[1]")).getText());
+	System.out.println(secoundProductInComparePage);
+	
+	Assert.assertEquals(firstProduct, firstProductInComparePage);
+	Assert.assertEquals(secoundProduct, secoundProductInComparePage);
 }
 }

@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="12.879" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Verify search products functionality" name="Verify user is able to Verify user is able to search a product by entering keywords in the search bar - Example #1.1" time="12.666">
-<failure type="java.lang.AssertionError" message="The SKU values of the resulted products do not start with 'M'">
-<![CDATA[java.lang.AssertionError: The SKU values of the resulted products do not start with 'M'
-	at org.junit.Assert.fail(Assert.java:89)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at Pages.HomePage.checkSkuNumber(HomePage.java:315)
-	at StepDefinition.SearchFunctionalityCheck.checks_if_the_sku_value_starts_with(SearchFunctionalityCheck.java:43)
-	at ✽.Checks if the SKU value for all the resulted product starts with "M"(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/checkSearchFunctionality.feature:20)
-]]>
-</failure>
+<testsuite name="Cucumber" time="60.438" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Verify compare products functionality" name="Verify user is able to Compare the products - Example #1.1" time="60.225">
 <system-out><![CDATA[
 Given User is on the home page..............................................passed
 And the page title is "Home Page"...........................................passed
@@ -18,12 +9,14 @@ And "Customer Login" page is displayed......................................pass
 When User enters the email address "Test121@yopmail.com" and password "Test12345".passed
 And User clicks on the sign-in button.......................................passed
 Then User should be logged in...............................................passed
-When User clicks on search bar..............................................passed
-And Enter required product Tshirt...........................................passed
-And Suggestions appears with "tshirt" as initials...........................passed
-And User selects " tshirt man"..............................................passed
-Then Search results page for "tshirt man" appears...........................passed
-And Checks if the SKU value for all the resulted product starts with "M"....failed
+And User scrolls all the way down to hot seller section.....................passed
+When Clicks on three bar button to add first Fusion Backpack to compare list.passed
+Then You added product Fusion Backpack to the comparison list shows up......passed
+And Clicks on three bar button to add secound Push It Messenger Bag to compare list.passed
+Then You added secound product Push It Messenger Bag to the comparison list shows up.passed
+Then Click compare products.................................................passed
+And User get directed to "Compare Products" page............................passed
+Then Check the products added Fusion Backpack and Push It Messenger Bag to the list are same products user has added by comparing name,SKU and description.passed
 ]]></system-out>
 </testcase>
 </testsuite>

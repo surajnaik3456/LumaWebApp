@@ -31,4 +31,4 @@ Feature: Verify new user checkout functionality
 
     Examples: 
       | firstname | lastname | email               | password  | confirmPassword | yogaPant                   | size | colour | company                       | streetAddress                          | city     | state   | zip   | country       | phoneNumber | shipping |
-      | Test1     |       23 | test212@yopmail.com | Test12345 | Test12345       | Ida Workout Parachute Pant |   29 | Black  | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri | Missouri | Arizona | 12345 | United States |  9732123456 | Fixed    |
+      | Test1     |       23 | test2121@yopmail.com | Test12345 | Test12345       | Ida Workout Parachute Pant |   29 | Black  | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri | Missouri | Arizona | 12345 | United States |  9732123456 | Fixed    |
