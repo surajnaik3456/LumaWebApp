@@ -1,4 +1,4 @@
-package StepDefi;
+package stepDefinition;
 
 import java.time.Duration;
 
@@ -38,6 +38,7 @@ public class ExistigUserCheckOutCheck extends TestBase{
 	@And("^the required (.*) page is displayed$")
 	public void the_required_gwen_drawstring_bike_short_page_is_displayed(String yogaPant) {
 		homePg.selectedItemPgDisplayed(yogaPant);
+		homePg.captureDetails();
 	}
 
 	@And("^Select (.*) and (.*)$")
@@ -118,21 +119,25 @@ public class ExistigUserCheckOutCheck extends TestBase{
 	{
 		WebElement paymentPg = driver.findElement(By.xpath("//div[text()='Payment Method']"));
 		Assert.assertEquals("payment screen is not displaced", paymentPg.getText(), paymentPage);
+		homePg.captureDetails2();
 	}
-	
+
 	@Then("click on place order")
 	public void click_on_place_order() throws InterruptedException {
-		Thread.sleep(3000);
+
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.action.action-edit")));
 		homePg.clickPlaceOrderBtn();
 	}
-	
+
 	@And ("{string} screen should be displayed with the order number")
 	public void screen_should_be_displayed_with_the_order_number(String orderPlacedConfirm) {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Thank you for your purchase!']")));
 		WebElement orderPlaced = driver.findElement(By.xpath("//span[text()='Thank you for your purchase!']"));
+		homePg.captureOrderNo();
 		Assert.assertEquals("Order is not placed", orderPlaced.getText(), orderPlacedConfirm);
 		homePg.orderPlacedNumb();
+		homePg.captureOrderNumber();
+
 	}
 
 

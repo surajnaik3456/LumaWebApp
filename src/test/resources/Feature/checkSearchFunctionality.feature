@@ -1,4 +1,4 @@
-@CheckSearchFunctionality
+@CheckSearchFunctionality @Regression
 Feature: Verify search products functionality
 
   Background: 
@@ -11,7 +11,7 @@ Feature: Verify search products functionality
     Then User should be logged in
 
   @CheckProductSearch
-  Scenario Outline: Verify user is able to Verify user is able to search a product by entering keywords in the search bar
+  Scenario Outline: Verify user is able to search a product by entering keywords in the search bar
     When User clicks on search bar
     And Enter required product <name>
     And Suggestions appears with "tshirt" as initials

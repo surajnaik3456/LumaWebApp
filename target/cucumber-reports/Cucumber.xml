@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="60.438" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Verify compare products functionality" name="Verify user is able to Compare the products - Example #1.1" time="60.225">
+<testsuite name="Cucumber" time="122.78" tests="7" skipped="0" failures="7" errors="0">
+<testcase classname="Verify compare products functionality" name="Verify user is able to Compare the products - Example #1.1" time="7.699">
+<failure type="org.openqa.selenium.WebDriverException" message="disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [166254fed4e5f41922fb9c7b13cd5ef1, maximizeCurrentWindow {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59193}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59193/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 166254fed4e5f41922fb9c7b13cd5ef1">
+<![CDATA[org.openqa.selenium.WebDriverException: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [166254fed4e5f41922fb9c7b13cd5ef1, maximizeCurrentWindow {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59193}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59193/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 166254fed4e5f41922fb9c7b13cd5ef1
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:592)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:1035)
+	at TestBase.TestBase.browserLaunch(TestBase.java:17)
+	at Hooks.Hooks.browserSetup(Hooks.java:13)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User is on the home page..............................................skipped
+And the page title is "Home Page"...........................................skipped
+And User clicks on the header sign-in link..................................skipped
+And "Customer Login" page is displayed......................................skipped
+When User enters the email address "Test121@yopmail.com" and password "Test12345".skipped
+And User clicks on the sign-in button.......................................skipped
+Then User should be logged in...............................................skipped
+And User scrolls all the way down to hot seller section.....................skipped
+When Clicks on three bar button to add first Radiant Tee to compare list....skipped
+Then You added product Radiant Tee to the comparison list shows up..........skipped
+And Clicks on three bar button to add secound Breathe-Easy Tank to compare list.skipped
+Then You added secound product Breathe-Easy Tank to the comparison list shows up.skipped
+Then Click compare products.................................................skipped
+And User get directed to "Compare Products" page............................skipped
+Then Check the products added Radiant Tee and Breathe-Easy Tank to the list are same products user has added by comparing name,SKU and description.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Verify search products functionality" name="Verify user is able to search a product by entering keywords in the search bar - Example #1.1" time="81.407">
+<failure type="java.lang.AssertionError" message="The SKU values of the resulted products do not start with 'M'">
+<![CDATA[java.lang.AssertionError: The SKU values of the resulted products do not start with 'M'
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at Pages.HomePage.checkSkuNumber(HomePage.java:356)
+	at stepDefinition.SearchFunctionalityCheck.checks_if_the_sku_value_starts_with(SearchFunctionalityCheck.java:43)
+	at ✽.Checks if the SKU value for all the resulted product starts with "M"(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/checkSearchFunctionality.feature:20)
+]]>
+</failure>
 <system-out><![CDATA[
 Given User is on the home page..............................................passed
 And the page title is "Home Page"...........................................passed
@@ -9,14 +72,325 @@ And "Customer Login" page is displayed......................................pass
 When User enters the email address "Test121@yopmail.com" and password "Test12345".passed
 And User clicks on the sign-in button.......................................passed
 Then User should be logged in...............................................passed
-And User scrolls all the way down to hot seller section.....................passed
-When Clicks on three bar button to add first Fusion Backpack to compare list.passed
-Then You added product Fusion Backpack to the comparison list shows up......passed
-And Clicks on three bar button to add secound Push It Messenger Bag to compare list.passed
-Then You added secound product Push It Messenger Bag to the comparison list shows up.passed
-Then Click compare products.................................................passed
-And User get directed to "Compare Products" page............................passed
-Then Check the products added Fusion Backpack and Push It Messenger Bag to the list are same products user has added by comparing name,SKU and description.passed
+When User clicks on search bar..............................................passed
+And Enter required product Tshirt...........................................passed
+And Suggestions appears with "tshirt" as initials...........................passed
+And User selects " tshirt man"..............................................passed
+Then Search results page for "tshirt man" appears...........................passed
+And Checks if the SKU value for all the resulted product starts with "M"....failed
+]]></system-out>
+</testcase>
+<testcase classname="Verify track order functionality" name="Verify user is able to track their orders - Example #1.1" time="6.869">
+<failure type="org.openqa.selenium.NoSuchWindowException" message="no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f348a53ba28ae92ea632d588dcc51211, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58926}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58926/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f348a53ba28ae92ea632d588dcc51211">
+<![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f348a53ba28ae92ea632d588dcc51211, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58926}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58926/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f348a53ba28ae92ea632d588dcc51211
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at Pages.HomePage.verifyLogo(HomePage.java:69)
+	at stepDefinition.CommonBackgroundSteps.user_is_on_the_home_page(CommonBackgroundSteps.java:22)
+	at ✽.User is on the home page(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/checkTrackOrdersFunctionality.feature:5)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User is on the home page..............................................failed
+And the page title is "Home Page"...........................................skipped
+And User clicks on the header sign-in link..................................skipped
+And "Customer Login" page is displayed......................................skipped
+When User enters the email address "Test121@yopmail.com" and password "Test12345".skipped
+And User clicks on the sign-in button.......................................skipped
+Then User should be logged in...............................................skipped
+When User clicks on shop new yoga button....................................skipped
+Then the "New Luma Yoga Collection" page is displayed.......................skipped
+And Click on the required Gwen Drawstring Bike Short........................skipped
+And the required Gwen Drawstring Bike Short page is displayed...............skipped
+And Select 29 and Orange....................................................skipped
+And Click on Add to card button.............................................skipped
+Then button text changes to Added...........................................skipped
+And User should scroll to the top...........................................skipped
+And Click on cart...........................................................skipped
+And Click on proceed to checkout button.....................................skipped
+Then checkout page is displayed.............................................skipped
+And Click on add new address................................................skipped
+And the shipping address pop-up appears.....................................skipped
+And user fills in all the parameters Teknotrait solutions Pvt. Ltd,Linwood Boulevard Kansas City Missouri),Missouri,Victoria,12345,Australia and 9732123456.skipped
+And Click on ship here......................................................skipped
+When Clicked on next button.................................................skipped
+Then "Payment Method" page is getting displayed.............................skipped
+And click on place order....................................................skipped
+And "Thank you for your purchase!" screen should be displayed with the order number.skipped
+When user clicks on account menu............................................skipped
+And selects my account menu.................................................skipped
+And my account page is displayed............................................skipped
+And click my orders button..................................................skipped
+Then my orders page is displayed............................................skipped
+And User clicks on view order for the ordered number........................skipped
+And Checks for the details are as expected..................................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Verify existing user checkout functionality" name="Verify existing user is able to checkout or not - Example #1.1" time="7.044">
+<failure type="org.openqa.selenium.NoSuchWindowException" message="no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5ca7e0a0d94e2432b1dda4919ae325bc, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58947}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58947/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5ca7e0a0d94e2432b1dda4919ae325bc">
+<![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5ca7e0a0d94e2432b1dda4919ae325bc, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58947}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58947/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5ca7e0a0d94e2432b1dda4919ae325bc
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at Pages.HomePage.verifyLogo(HomePage.java:69)
+	at stepDefinition.CommonBackgroundSteps.user_is_on_the_home_page(CommonBackgroundSteps.java:22)
+	at ✽.User is on the home page(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/existingUserCheckout.feature:5)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User is on the home page..............................................failed
+And the page title is "Home Page"...........................................skipped
+And User clicks on the header sign-in link..................................skipped
+And "Customer Login" page is displayed......................................skipped
+When User enters the email address "Test121@yopmail.com" and password "Test12345".skipped
+And User clicks on the sign-in button.......................................skipped
+Then User should be logged in...............................................skipped
+When User clicks on shop new yoga button....................................skipped
+Then the "New Luma Yoga Collection" page is displayed.......................skipped
+And Click on the required Gwen Drawstring Bike Short........................skipped
+And the required Gwen Drawstring Bike Short page is displayed...............skipped
+And Select 29 and Orange....................................................skipped
+And Click on Add to card button.............................................skipped
+Then button text changes to Added...........................................skipped
+And User should scroll to the top...........................................skipped
+And Click on cart...........................................................skipped
+And Click on proceed to checkout button.....................................skipped
+Then checkout page is displayed.............................................skipped
+And Click on add new address................................................skipped
+And the shipping address pop-up appears.....................................skipped
+And user fills in all the parameters Teknotrait solutions Pvt. Ltd,Linwood Boulevard Kansas City Missouri),Missouri,Victoria,12345,Australia and 9732123456.skipped
+And Click on ship here......................................................skipped
+When Clicked on next button.................................................skipped
+Then "Payment Method" page is getting displayed.............................skipped
+And click on place order....................................................skipped
+And "Thank you for your purchase!" screen should be displayed with the order number.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Verify new user checkout functionality" name="Verify new user is able to checkout or not - Example #1.1" time="6.054">
+<failure type="org.openqa.selenium.NoSuchWindowException" message="no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [57cfcd9f2cf52c78f1f952dbf5ff56d4, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58967}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58967/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 57cfcd9f2cf52c78f1f952dbf5ff56d4">
+<![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [57cfcd9f2cf52c78f1f952dbf5ff56d4, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58967}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58967/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 57cfcd9f2cf52c78f1f952dbf5ff56d4
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at Pages.HomePage.verifyLogo(HomePage.java:69)
+	at stepDefinition.CommonBackgroundSteps.user_is_on_the_home_page(CommonBackgroundSteps.java:22)
+	at ✽.User is on the home page(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/newUserCheckout.feature:6)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User is on the home page..............................................failed
+And the page title is "Home Page"...........................................skipped
+And User clicks on the header create an account link........................skipped
+And Create New Customer Account page is displayed...........................skipped
+When User enters the Tester,s,Testers113@yopmail.com,Test12345 and Test12345.skipped
+And User clicks on the create account button................................skipped
+Then "Thank you for registering with Main Website Store." shows up..........skipped
+And User clicks on Luma logo................................................skipped
+When User clicks on shop new yoga button....................................skipped
+Then the "New Luma Yoga Collection" page is displayed.......................skipped
+And Click on the required Ida Workout Parachute Pant........................skipped
+And the required Ida Workout Parachute Pant page is displayed...............skipped
+And Select 29 and Black.....................................................skipped
+And Click on Add to card button.............................................skipped
+Then button text changes to Added...........................................skipped
+And User should scroll to the top...........................................skipped
+And Click on cart...........................................................skipped
+And Click on proceed to checkout button.....................................skipped
+Then checkout page is displayed.............................................skipped
+And user fills in all the parameters Teknotrait solutions Pvt. Ltd,Linwood Boulevard Kansas City Missouri,Missouri,Arizona,12345,United States and 9732123456.skipped
+And Select a Fixed method...................................................skipped
+When Clicked on next button.................................................skipped
+Then "Payment Method" page is getting displayed.............................skipped
+And click on place order....................................................skipped
+And "Thank you for your purchase!" screen should be displayed with the order number.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Verify sort products functionality" name="Verify user is able to sort by product price" time="6.569">
+<failure type="org.openqa.selenium.NoSuchWindowException" message="no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [da985311ca1939fc30b4f9f65533d053, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58986}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58986/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: da985311ca1939fc30b4f9f65533d053">
+<![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [da985311ca1939fc30b4f9f65533d053, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58986}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58986/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: da985311ca1939fc30b4f9f65533d053
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at Pages.HomePage.verifyLogo(HomePage.java:69)
+	at stepDefinition.CommonBackgroundSteps.user_is_on_the_home_page(CommonBackgroundSteps.java:22)
+	at ✽.User is on the home page(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/sortProducts.feature:5)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User is on the home page..............................................failed
+And the page title is "Home Page"...........................................skipped
+And User clicks on the header sign-in link..................................skipped
+And "Customer Login" page is displayed......................................skipped
+When User enters the email address "Tester1123@yopmail.com" and password "Test12345".skipped
+And User clicks on the sign-in button.......................................skipped
+Then User should be logged in...............................................skipped
+When User clicks on shop new yoga button....................................skipped
+Then the "New Luma Yoga Collection" page is displayed.......................skipped
+And Click on the sort by dropdown...........................................skipped
+And Select sort by price....................................................skipped
+Then check sorting is done according to the price...........................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Verify sort products functionality" name="Verify user is able to sort by Product Name" time="6.009">
+<failure type="org.openqa.selenium.NoSuchWindowException" message="no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9f3dda04d91efb413613411acd68432c, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59008}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59008/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9f3dda04d91efb413613411acd68432c">
+<![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9f3dda04d91efb413613411acd68432c, findElement {using=css selector, value=a[class='logo']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59008}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59008/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9f3dda04d91efb413613411acd68432c
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at Pages.HomePage.verifyLogo(HomePage.java:69)
+	at stepDefinition.CommonBackgroundSteps.user_is_on_the_home_page(CommonBackgroundSteps.java:22)
+	at ✽.User is on the home page(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/sortProducts.feature:5)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User is on the home page..............................................failed
+And the page title is "Home Page"...........................................skipped
+And User clicks on the header sign-in link..................................skipped
+And "Customer Login" page is displayed......................................skipped
+When User enters the email address "Tester1123@yopmail.com" and password "Test12345".skipped
+And User clicks on the sign-in button.......................................skipped
+Then User should be logged in...............................................skipped
+When User clicks on shop new yoga button....................................skipped
+Then the "New Luma Yoga Collection" page is displayed.......................skipped
+And Click on the sort by dropdown...........................................skipped
+And Select sort by Product Name.............................................skipped
+Then check sorting is done according to the Product Name....................skipped
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -1,4 +1,4 @@
-@NewUserCheckout
+@NewUserCheckout @Regression
 Feature: Verify new user checkout functionality
 
   @NewUserCheckoutFlow
@@ -30,5 +30,5 @@ Feature: Verify new user checkout functionality
     And "Thank you for your purchase!" screen should be displayed with the order number
 
     Examples: 
-      | firstname | lastname | email               | password  | confirmPassword | yogaPant                   | size | colour | company                       | streetAddress                          | city     | state   | zip   | country       | phoneNumber | shipping |
-      | Test1     |       23 | test2121@yopmail.com | Test12345 | Test12345       | Ida Workout Parachute Pant |   29 | Black  | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri | Missouri | Arizona | 12345 | United States |  9732123456 | Fixed    |
+      | firstname | lastname | email                  | password  | confirmPassword | yogaPant                   | size | colour | company                       | streetAddress                          | city     | state   | zip   | country       | phoneNumber | shipping |
+      | Tester    | s        | Testers1213@yopmail.com | Test12345 | Test12345       | Ida Workout Parachute Pant |   29 | Black  | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri | Missouri | Arizona | 12345 | United States |  9732123456 | Fixed    |

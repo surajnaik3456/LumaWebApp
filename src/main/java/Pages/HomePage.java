@@ -44,12 +44,21 @@ public class HomePage extends TestBase{
 	By searchField = By.cssSelector("input#search");
 	By hotSellersSection = By.xpath("//h2[text()='Hot Sellers']");
 	By actionCompare = By.cssSelector("a.action.compare");
+	By myAccountMenu = By.cssSelector("button.action.switch");
+	By myAccount = By.xpath("//a[text()='My Account']");
+	By myAccountPg = By.cssSelector("h1.page-title");
+	By myOrder = By.xpath("//a[text()='My Orders']");
+	By myOrderPg = By.xpath("//span[text()='My Orders']");
+	
 	
 	//Variables used for product comparison
 	List<String> firstProduct = new ArrayList<String>();
 	List<String> secoundProduct = new ArrayList<String>();
 	List<String> firstProductInComparePage = new ArrayList<String>();
 	List<String> secoundProductInComparePage = new ArrayList<String>();
+	public static List<String> productDetail = new ArrayList<String>();
+	List<String> productDetailsInOrderPg = new ArrayList<String>();
+	
 	
 	public void clickLogo()
     {
@@ -113,7 +122,7 @@ public class HomePage extends TestBase{
     }
     public void clickCart()
     {
-    	wait.until(ExpectedConditions.elementToBeClickable(cartCount));
+    	//wait.until(ExpectedConditions.elementToBeClickable(cartCount));
     	driver.findElement(cart).click();
     }
     public void clickCheckOutBtn()
@@ -191,15 +200,18 @@ public void selectShippingMethod()
 }
 public void clickNextBtn()
 {
-	wait.until(ExpectedConditions.visibilityOfElementLocated(nextBtn));
+	//wait.until(ExpectedConditions.visibilityOfElementLocated(nextBtn));
 	driver.findElement(nextBtn).click();
 }
-public void clickPlaceOrderBtn()
+public void clickPlaceOrderBtn() throws InterruptedException
 {
+	Thread.sleep(3000);
+	//wait.until(ExpectedConditions.elementToBeClickable(placeOrder));
 	driver.findElement(placeOrder).click();
 }
 public void orderPlacedNumb()
 {
+	
 	driver.findElement(orderNumb).getText();
 }
 public void paymentPageDisplayed()
@@ -218,13 +230,14 @@ public void selectSortByPrice()
 }
 public void sortingByPrice() 
 {
-	
+	String price1 = null;
+	String price2 = null;
 	List<WebElement> afterFilter = driver.findElements(By.xpath("//span[@class='price']"));
 	boolean isSorted = true;
-	for (int i = 0; i < 8; i++) {
-	    System.out.println(afterFilter.get(i).getText().replace("$", "").trim());
-	    String price1 = afterFilter.get(i).getText().replace("$", "").trim();
-	    String price2 = afterFilter.get(i + 1).getText().replace("$", "").trim();
+	for (int i = 0; i < afterFilter.size(); i++) {
+	   // System.out.println(afterFilter.get(i).getText().replace("$", "").trim());
+	     price1 = afterFilter.get(i).getText().replace("$", "").trim();
+	     price2 = afterFilter.get(i + 1).getText().replace("$", "").trim();
 	    
 	    if (Double.parseDouble(price1) > Double.parseDouble(price2)) {
 	        isSorted = false;
@@ -238,27 +251,41 @@ public void sortingByPrice()
 	} else {
 	    System.out.println("Products are not sorted by price (low to high).");
 	}
+	System.out.println(price1);
+	System.out.println(price2);
+	Assert.assertEquals(price2, price1);
 }
 public void sortingByProductName()
 {
-	List<WebElement> beforeSort= driver.findElements(By.xpath("//a[@class='product-item-link']"));
+	try {
+		Thread.sleep(4000);
+	} catch (InterruptedException e) {
+	
+		e.printStackTrace();
+	}
 	List<String> store1 = new ArrayList<String>();
-	for(WebElement store:beforeSort)
+	List<WebElement> Sort1= driver.findElements(By.xpath("//a[@class='product-item-link']"));
+	
+	for(WebElement store:Sort1)
 	{
-		String data = store.getText();
-		store1.add(data);
+		String data1 = store.getText();
+		store1.add(data1);
 	}
-	List<String> temp = new ArrayList<String>();
-	temp.addAll(store1);
-	Collections.sort(temp);
-	if (temp.equals(store1))
+	
+	List<String> store2 = new ArrayList<String>();
+	List<WebElement> Sort2= driver.findElements(By.xpath("//a[@class='product-item-link']"));
+	
+	for(WebElement stor:Sort2)
 	{
-		 System.out.println("Products are sorted by name");
+		String data2 = stor.getText();
+		store2.add(data2);
 	}
-	else
-	{
-		 System.out.println("Products are not sorted by name");
-	}
+
+	Collections.sort(store1);
+	System.out.println(store1);
+	System.out.println(store2);
+	
+	Assert.assertEquals(store1, store2);
 }
 
 public void selectSortByProductName()
@@ -301,6 +328,11 @@ public void checkResultsForSelectedOptionPageDisplayed(String resultPageDisplaye
 		expectedResultPage=false;
 	}
 	Assert.assertTrue("Expected result page is not displayed ", expectedResultPage);
+}
+public void captureOrderNo()
+{
+	WebElement orderNumber = driver.findElement(orderNumb);
+	System.out.println(orderNumber.getText());
 }
 public void checkSkuNumber() 
 {
@@ -406,5 +438,80 @@ public void verifyProductsAddedToComparePgAreTheSameProducts(String product1, St
 	
 	Assert.assertEquals(firstProduct, firstProductInComparePage);
 	Assert.assertEquals(secoundProduct, secoundProductInComparePage);
+}
+public void captureDetails()
+{
+	productDetail.add(driver.findElement(By.xpath("//span[@itemprop='name']")).getText());
+	productDetail.add(driver.findElement(By.xpath("//div[@itemprop='sku']")).getText());
+	productDetail.add(driver.findElement(By.xpath("//input[@value='1']")).getAttribute("value"));
+	System.out.println(	productDetail);
+}
+public void captureDetails2()
+{
+	productDetail.add(driver.findElement(By.xpath("//span[@data-bind='text: getTitle()']")).getText());
+	productDetail.add(driver.findElement(By.xpath("//span[@data-th='Cart Subtotal']")).getText().replace("$", "").trim());
+	//productDetails.add(driver.findElement(By.cssSelector("div.shipping-information-content")).getText());
+	
+}
+
+public void captureOrderNumber()
+{
+	productDetail.add(driver.findElement(By.cssSelector("a.order-number")).getText());
+	System.out.println(	productDetail);
+}
+public void clickMyAccountMenu()
+{
+	driver.findElement(myAccountMenu).click();
+	
+}
+public void selectFromMenu()
+{
+	driver.findElement(myAccount).click();
+	
+}
+public void myAccountPageDisplayed()
+{
+	if(driver.findElement(myAccountPg).isDisplayed())
+	{
+		System.out.println("My Account page is displayed");
+	}
+	else
+	{
+		System.out.println("My Account page is not displayed");	
+	}
+}
+public void clickMyOrders()
+{
+	driver.findElement(myOrder).click();
+}
+public void myOrderPgDisplayed()
+{
+	WebElement pg = driver.findElement(myOrderPg);
+	Assert.assertEquals(pg.getText(), "My Orders");
+	
+}
+public void clickViewOrderForOrderNo()
+{
+	driver.findElement(By.xpath("//td//following::td[5]/a[@class='action view'][1]")).click();
+	
+}
+public void verifyDetails()
+{
+
+	WebElement productNm = driver.findElement(By.cssSelector("strong.product.name.product-item-name"));
+	WebElement sku = driver.findElement(By.cssSelector("td.col.sku"));
+	WebElement qty = driver.findElement(By.cssSelector("span.content"));
+	WebElement paymentMethod = driver.findElement(By.cssSelector("dl.payment-method.checkmemo"));
+	WebElement subTotalPrice = driver.findElement(By.xpath("//span[@class='cart-price'][1]"));
+	WebElement productOrderNo = driver.findElement(By.xpath("//span[@data-ui-id='page-title-wrapper']"));
+	System.out.println(productDetail);
+	productDetailsInOrderPg.add(productNm.getText());
+	productDetailsInOrderPg.add(sku.getText().substring(0, 5));
+	productDetailsInOrderPg.add(qty.getText());
+	productDetailsInOrderPg.add(paymentMethod.getText());
+	productDetailsInOrderPg.add(subTotalPrice.getText().replace("$", "").trim());
+	productDetailsInOrderPg.add(productOrderNo.getText().replaceAll("\\D", "").trim());
+	System.out.println(productDetailsInOrderPg);
+	Assert.assertEquals(productDetail, productDetailsInOrderPg);
 }
 }

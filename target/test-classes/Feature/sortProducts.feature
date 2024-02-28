@@ -1,4 +1,4 @@
-@SortCheck @Suite
+@SortCheck @Regression
 Feature: Verify sort products functionality
 
   Background: 
@@ -6,7 +6,7 @@ Feature: Verify sort products functionality
     And the page title is "Home Page"
     And User clicks on the header sign-in link
     And "Customer Login" page is displayed
-    When User enters the email address "Test121@yopmail.com" and password "Test12345"
+    When User enters the email address "Tester1123@yopmail.com" and password "Test12345"
     And User clicks on the sign-in button
     Then User should be logged in
 

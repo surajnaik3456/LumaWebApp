@@ -1,4 +1,4 @@
-@CheckCompareProductsFunctionality
+@CheckCompareProductsFunctionality @Regression
 Feature: Verify compare products functionality
 
   Background: 
@@ -22,5 +22,5 @@ Feature: Verify compare products functionality
     Then Check the products added <product1> and <product2> to the list are same products user has added by comparing name,SKU and description
 
     Examples: 
-      | product1               | product2    |
-      | Fusion Backpack | Push It Messenger Bag |
+      | product1    | product2          |
+      | Radiant Tee | Breathe-Easy Tank |

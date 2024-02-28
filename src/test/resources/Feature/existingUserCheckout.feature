@@ -1,4 +1,4 @@
-@ExistingUserCheckout @Suite
+@ExistingUserCheckout @Regression
 Feature: Verify existing user checkout functionality
 
   Background: 

@@ -1,5 +1,5 @@
-@ExistingUserCheckout @Regression
-Feature: Verify existing user checkout functionality
+@CheckTrackOrders @Regression
+Feature: Verify track order functionality
 
   Background: 
     Given User is on the home page
@@ -10,8 +10,8 @@ Feature: Verify existing user checkout functionality
     And User clicks on the sign-in button
     Then User should be logged in
 
-  @ExistingUserCheckoutFlow
-  Scenario Outline: Verify existing user is able to checkout or not
+  @CheckTrackOrdersFlow
+  Scenario Outline: Verify user is able to track their orders
     When User clicks on shop new yoga button
     Then the "New Luma Yoga Collection" page is displayed
     And Click on the required <yogaPant>
@@ -31,6 +31,13 @@ Feature: Verify existing user checkout functionality
     Then "Payment Method" page is getting displayed
     And click on place order
     And "Thank you for your purchase!" screen should be displayed with the order number
+    When user clicks on account menu
+    And selects my account menu
+    And my account page is displayed
+    And click my orders button
+    Then my orders page is displayed
+    And User clicks on view order for the ordered number
+    And Checks for the details are as expected
 
     Examples: 
       | yogaPant                   | size | colour | company                       | streetAddress                           | city     | state    | zip   | country   | phoneNumber |
