@@ -2,6 +2,7 @@ package stepDefinition;
 
 import java.time.Duration;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,12 +20,13 @@ public class CommonBackgroundSteps extends TestBase {
 	
 	@Given("User is on the home page")
 	public void user_is_on_the_home_page() {
-	    homePg.verifyLogo();
+	    Assert.assertTrue("Homepage is been displayed", homePg.verifyLogo());
+	    
 	}
 	
 	@And("the page title is {string}")
 	public void the_page_title_is(String title) {
-	    driver.getTitle().equalsIgnoreCase(title);
+	  Assert.assertEquals("Page title is not Home page", driver.getTitle(), title);
 	}
 	
 	@And("User clicks on the header sign-in link")
@@ -33,7 +35,8 @@ public class CommonBackgroundSteps extends TestBase {
 	}
 	@And("{string} page is displayed")
 	public void page_displayed(String loginPage) {
-		loginPg.loginPgDisplayed(loginPage);   
+		Assert.assertTrue("Page is not displayed", loginPg.loginPgDisplayed(loginPage));
+		
 	}
 	@When("User enters the email address {string} and password {string}")
 	public void user_enters_the_email_address_and_password(String email, String password) {
@@ -48,6 +51,6 @@ public class CommonBackgroundSteps extends TestBase {
 	}
 	@Then("User should be logged in")
 	public void user_should_be_logged_in() {
-		driver.getTitle().equalsIgnoreCase("Home Page");
+		Assert.assertEquals("User is not logged in...", driver.getTitle(), "Home Page");
 	}
 }

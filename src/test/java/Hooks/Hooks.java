@@ -3,6 +3,7 @@ package Hooks;
 import TestBase.TestBase;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 public class Hooks {
 	TestBase base = new TestBase();
@@ -14,9 +15,9 @@ public class Hooks {
 		System.out.println("I'm inside browser setup");
 	}
 	@After
-	public void tearDown()
+	public void tearDown(Scenario scenario)
 	{
-		base.quitBrowser();
+		base.quitBrowser(scenario);
 		System.out.println("Browser closed");
 	}
 } 

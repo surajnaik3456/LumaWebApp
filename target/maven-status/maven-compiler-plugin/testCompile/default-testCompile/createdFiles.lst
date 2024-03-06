@@ -1,0 +1,9 @@
+stepDefinition\CheckCompareProduct.class
+stepDefinition\CheckOrderDetailsMatches.class
+stepDefinition\CommonBackgroundSteps.class
+stepDefinition\NewUserCheckOut.class
+stepDefinition\ExistigUserCheckOutCheck.class
+Hooks\Hooks.class
+stepDefinition\SortProducts.class
+Runner\Runner.class
+stepDefinition\SearchFunctionalityCheck.class

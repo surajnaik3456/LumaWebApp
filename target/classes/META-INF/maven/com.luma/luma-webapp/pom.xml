@@ -37,6 +37,15 @@
     <version>5.10.2</version>
     <scope>test</scope>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j2-impl</artifactId>
+    <version>2.23.0</version>
+    <scope>test</scope>
+</dependency>
+
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -61,6 +70,24 @@
     <artifactId>cucumber-gherkin</artifactId>
     <version>7.15.0</version>
 </dependency>
+<!-- To generate screenshot on failure-->
+<dependency>
+  <groupId>me.jvt.cucumber</groupId>
+  <artifactId>reporting-plugin</artifactId>
+  <version>5.0.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>gherkin</artifactId>
+    <version>28.0.0</version>
+</dependency>
+<dependency>
+  <groupId>junit</groupId>
+  <artifactId>junit</artifactId>
+  <version>4.13.2</version>
+</dependency>
   </dependencies>
     <build>
         <plugins>
@@ -71,9 +98,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-						<include>
-							**/*Runner.java
-						</include>
+						<include>**/*Runner.java</include>
 					</includes>
                 </configuration>
             </plugin>
@@ -89,7 +114,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>OrangeHRM_BDD</projectName>
+                            <projectName>luma-webapp</projectName>
                             <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
                             <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
                         </configuration>

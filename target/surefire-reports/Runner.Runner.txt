@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: Runner.Runner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 38.245 s <<< FAILURE! - in Runner.Runner
+Verify user is able to search a product by entering keywords in the search bar(Verify search products functionality)  Time elapsed: 34.349 s  <<< FAILURE!
+java.lang.AssertionError: The SKU values of the resulted products do not start with 'M'
+

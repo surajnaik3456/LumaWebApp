@@ -13,9 +13,9 @@ public class CreateAccountPage extends TestBase{
 	By pwd = By.cssSelector("input#password");
 	By pwdConfirm = By.cssSelector("input#password-confirmation");
 	By createAccountBtn = By.xpath("//span[text()='Create an Account']");
-	
-	
-	
+
+
+
 	public void clickCreateAccountLink()
 	{
 		driver.findElement(createAccount).click();

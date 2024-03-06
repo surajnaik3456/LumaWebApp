@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.OrderSuccessPage;
+import Pages.checkoutPage;
 import TestBase.TestBase;
 import io.cucumber.java.en.*;
 
@@ -18,7 +20,10 @@ public class ExistigUserCheckOutCheck extends TestBase{
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	HomePage homePg = new HomePage();
 	LoginPage loginPg = new LoginPage();
-
+	checkoutPage checkOutPg = new checkoutPage();
+	OrderSuccessPage successPg = new OrderSuccessPage();
+	
+	
 	@When("User clicks on shop new yoga button")
 	public void user_clicks_on_shop_new_yoga_button() {
 		homePg.shopNewYogaBtnClick();
@@ -53,15 +58,20 @@ public class ExistigUserCheckOutCheck extends TestBase{
 	}
 	@Then("button text changes to Added")
 	public void button_text_changes_to_added() {
-		homePg.added();
+		Assert.assertTrue(homePg.btnTextChangesToAdded());
 	}
 	@Then("User should scroll to the top")
 	public void user_should_scroll_to_the_top() {
 		homePg.scrollToCart();
 	}
 	@Then("Click on cart")
-	public void click_on_cart() throws InterruptedException {
-		Thread.sleep(2000);
+	public void click_on_cart()  {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		homePg.clickCart();
 	}
 	@Then("Click on proceed to checkout button")
@@ -70,49 +80,45 @@ public class ExistigUserCheckOutCheck extends TestBase{
 	}
 	@Then("checkout page is displayed")
 	public void checkout_page_is_displayed() {
-		homePg.checkOutPageDisplayed();
+		Assert.assertTrue("Checkout page is not displayed..",checkOutPg.checkOutPageDisplayed());
 
 	}
 	@And ("Click on add new address")
 	public void click_new_address_Button() throws InterruptedException 
 	{
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Next']")));
-		homePg.clickNewAddressBtn();
+		checkOutPg.clickNewAddressBtn();
 	}
 	@And ("the shipping address pop-up appears")
 	public void shipping_address_pop_up_displays()
 	{
-		homePg.shipingAdPopUpShowsUp();
+		Assert.assertTrue(checkOutPg.shipingAdPopUpShowsUp());
 
 	}
 	@Then("^user fills in all the parameters (.*),(.*),(.*),(.*),(.*),(.*) and (.*)$")
 	public void user_fills_in_all_the_parameters(String company,String streetAddress,String city,String state,String zip,String country,String phoneNumber) throws InterruptedException {
-		homePg.enterCompanyName(company);
+		checkOutPg.enterCompanyName(company);
 
-		homePg.enterStreetName(streetAddress);
+		checkOutPg.enterStreetName(streetAddress);
 
-		homePg.enterCityName(city);
+		checkOutPg.enterCityName(city);
 
-		homePg.enterZipCode(zip);
+		checkOutPg.enterZipCode(zip);
 
-		homePg.selectCountry(country);
+		checkOutPg.selectCountry(country);
 
-		homePg.selectState(state);
+		checkOutPg.selectState(state);
 
-		homePg.enterPhnNumb(phoneNumber);
+		checkOutPg.enterPhnNumb(phoneNumber);
 
 	}
 	@And ("Click on ship here")
 	public void click_ship_here() {
-		homePg.clickShipHere();
+		checkOutPg.clickShipHere();
 	}
-	@Then("Select a shipping method")
-	public void select_a_shipping_method() {
-		homePg.selectShippingMethod();
-	}
+
 	@When("Clicked on next button")
 	public void clicked_on_next_button() {
-		homePg.clickNextBtn();
+		checkOutPg.clickNextBtn();
 	}
 	@Then ("{string} page is getting displayed")
 	public void payment_screen(String paymentPage)
@@ -131,12 +137,8 @@ public class ExistigUserCheckOutCheck extends TestBase{
 
 	@And ("{string} screen should be displayed with the order number")
 	public void screen_should_be_displayed_with_the_order_number(String orderPlacedConfirm) {
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Thank you for your purchase!']")));
-		WebElement orderPlaced = driver.findElement(By.xpath("//span[text()='Thank you for your purchase!']"));
-		homePg.captureOrderNo();
-		Assert.assertEquals("Order is not placed", orderPlaced.getText(), orderPlacedConfirm);
-		homePg.orderPlacedNumb();
-		homePg.captureOrderNumber();
+		Assert.assertTrue("Order is not placed", successPg.successPageDisplayed(orderPlacedConfirm));
+		successPg.captureOrderNumber();
 
 	}
 

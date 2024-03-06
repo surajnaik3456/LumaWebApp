@@ -27,11 +27,12 @@ Feature: Verify existing user checkout functionality
     And the shipping address pop-up appears
     And user fills in all the parameters <company>,<streetAddress>,<city>,<state>,<zip>,<country> and <phoneNumber>
     And Click on ship here
+    And Select a <shipping> method
     When Clicked on next button
     Then "Payment Method" page is getting displayed
     And click on place order
     And "Thank you for your purchase!" screen should be displayed with the order number
 
     Examples: 
-      | yogaPant                   | size | colour | company                       | streetAddress                           | city     | state    | zip   | country   | phoneNumber |
-      | Gwen Drawstring Bike Short |   29 | Orange | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri) | Missouri | Victoria | 12345 | Australia |  9732123456 |
+      | yogaPant                   | size | colour | company                       | streetAddress                           | city     | state    | zip   | country   | phoneNumber | shipping |
+      | Gwen Drawstring Bike Short |   29 | Orange | Teknotrait solutions Pvt. Ltd | Linwood Boulevard Kansas City Missouri) | Missouri | Victoria | 12345 | Australia |  9732123456 | Fixed    |

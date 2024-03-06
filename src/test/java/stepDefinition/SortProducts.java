@@ -1,6 +1,8 @@
 package stepDefinition;
 
 import java.time.Duration;
+
+import org.junit.Assert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Pages.HomePage;
@@ -30,6 +32,7 @@ public class SortProducts extends TestBase{
 	public void check_sorting_is_done_according_to_the_price()  {
 		
 		homePg.sortingByPrice();
+		Assert.assertEquals(HomePage.price1, HomePage.price2);
 	}
 	
 
@@ -41,7 +44,7 @@ public class SortProducts extends TestBase{
 	@Then("check sorting is done according to the Product Name")
 	public void check_sorting_is_done_according_to_the_product_name()  {
 		homePg.sortingByProductName();
-		
+		Assert.assertEquals(HomePage.store1, HomePage.store2);
 	}
 
 

@@ -6,19 +6,19 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/Feature", 
-                 glue = { "stepDefinition","Hooks" },
-                 tags = "@Regression", 
-                 monochrome = true, 
-                 dryRun = false,
-                 plugin = {
-                	                "pretty",
-                	                "html:target/cucumber-reports/cucumber.html",
-                	                "json:target/cucumber-reports/cucumber.json",
-                	                "junit:target/cucumber-reports/Cucumber.xml"
-                	      })
+@CucumberOptions(features = "src/test/resources/Feature",
+glue = { "stepDefinition","Hooks" },
+tags = "@CheckCompareProducts", 
+monochrome = true, 
+dryRun = false,
+plugin = {
+		"pretty",
+//		"html:target/cucumber-reports/cucumber.html",
+//		"json:target/cucumber-reports/cucumber.json",
+//		"junit:target/cucumber-reports/Cucumber.xml",
+		"me.jvt.cucumber.report.PrettyReports:target/cucumber"
+})
 public class Runner {
-	
+
 
 }
- 

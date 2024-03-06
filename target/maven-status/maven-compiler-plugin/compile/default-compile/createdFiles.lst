@@ -1,0 +1,8 @@
+TestBase\TestBase.class
+Pages\OrderSuccessPage.class
+Pages\MyAccountPage.class
+Pages\CompareListPage.class
+Pages\LoginPage.class
+Pages\CreateAccountPage.class
+Pages\HomePage.class
+Pages\checkoutPage.class

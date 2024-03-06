@@ -2,6 +2,7 @@ package stepDefinition;
 
 import java.time.Duration;
 
+import org.junit.Assert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Pages.HomePage;
@@ -34,13 +35,13 @@ public class SearchFunctionalityCheck extends TestBase{
 	}
 	@Then("Search results page for {string} appears")
 	public void search_results_page_for_appears(String resultPageDisplayed) {
-		homePg.checkResultsForSelectedOptionPageDisplayed(resultPageDisplayed);
+		Assert.assertTrue("Result page is not displayed", homePg.checkResultsForSelectedOptionPageDisplayed(resultPageDisplayed));
 
 	}
 
 	@And("Checks if the SKU value for all the resulted product starts with {string}")
-	public void checks_if_the_sku_value_starts_with(String string)   {
-		homePg.checkSkuNumber();
+	public void checks_if_the_sku_value_starts_with(String category)   {
+		homePg.checkSkuNumber(category);
 	}
 
 

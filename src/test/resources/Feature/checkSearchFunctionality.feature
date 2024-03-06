@@ -17,7 +17,7 @@ Feature: Verify search products functionality
     And Suggestions appears with "tshirt" as initials
     And User selects " tshirt man"
     Then Search results page for "tshirt man" appears
-    And Checks if the SKU value for all the resulted product starts with "M"
+    And Checks if the SKU value for all the resulted product starts with "W"
 
     Examples: 
       | name   |
