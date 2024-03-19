@@ -52,7 +52,7 @@ public class NewUserCheckOut extends TestBase{
 	public void user_clicks_on_luma_logo() {
 		homePg.clickLogo();
 	}
-	@Then("^Select a (.*) method$")
+	@Then("^User selects a (.*) method$")
 	public void select_a_shipping_method(String shipping) {
 		checkoutPg.selectShippingMethod(shipping);
 	   	}

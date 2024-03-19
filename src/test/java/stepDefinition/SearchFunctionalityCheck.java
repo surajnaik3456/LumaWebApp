@@ -24,12 +24,13 @@ public class SearchFunctionalityCheck extends TestBase{
 	public void enter_required_product_tshirt(String name)  {
 		homePg.enterRequiredProductInSearchBox(name);
 	}
-	@When("Suggestions appears with {string} as initials")
-	public void suggestions_appears_with_tshirt_as_initials(String initial)  {
-		homePg.checkSuggestionWithInitial(initial);
+	@Then("^Suggestions appears with (.*) as initials$")
+	public void suggestions_appears_with_tshirt_as_initials(String name)  {
+		homePg.checkSuggestionWithInitial(name);
+		Assert.assertTrue(HomePage.startsWithInitial);
 
 	}
-	@When("User selects {string}")
+	@And("User selects {string}")
 	public void user_selects(String selectSuggestion) {
 		homePg.selectsOption(selectSuggestion);
 	}
@@ -42,6 +43,7 @@ public class SearchFunctionalityCheck extends TestBase{
 	@And("Checks if the SKU value for all the resulted product starts with {string}")
 	public void checks_if_the_sku_value_starts_with(String category)   {
 		homePg.checkSkuNumber(category);
+		Assert.assertTrue(HomePage.expectedSku);
 	}
 
 

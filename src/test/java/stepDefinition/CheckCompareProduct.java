@@ -23,7 +23,7 @@ public class CheckCompareProduct extends TestBase{
 	{
 		Assert.assertTrue(loginPg.loginAsUser(email, password));
 	}
-	@Then("User scrolls all the way down to hot seller section")
+	@And("User scrolls all the way down to hot seller section")
 	public void user_scrolls_all_the_way_down_to_hot_seller_section() {
 		homePg.scrollToHotSellerSection();
 	}
@@ -35,7 +35,7 @@ public class CheckCompareProduct extends TestBase{
 	public void you_added_product_one_to_the_comparison_list_shows_up(String product1) {
 		Assert.assertTrue(homePg.verifyFirstProductAddedSuccessMsg(product1));
 	}
-	@Then("^Clicks on three bar button to add secound (.*) to compare list$")
+	@And("^Clicks on three bar button to add secound (.*) to compare list$")
 	public void clicks_on_three_bar_button_to_add_secound_to_compare_list(String product2) {
 		homePg.addSecondProductToCompare(product2);
 	}
@@ -43,11 +43,11 @@ public class CheckCompareProduct extends TestBase{
 	public void you_added_secound_product_to_the_comparison_list_shows_up(String product2) {
 		Assert.assertTrue(homePg.verifySecondProductAddedSuccessMsg(product2));
 	}
-	@Then("Click compare products")
+	@When("User clicks on compare products")
 	public void click_compare_products() {
 		homePg.clickCompareProduct();
 	}
-	@Then("User gets directed to {string} page")
+	@And("User gets directed to {string} page")
 	public void user_get_directed_to_compare_products_page(String comparePgDisplayed) {
 		Assert.assertTrue(compareListPg.verifyComparePageDisplays(comparePgDisplayed));
 

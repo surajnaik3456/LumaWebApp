@@ -29,72 +29,66 @@ public class ExistigUserCheckOutCheck extends TestBase{
 		homePg.shopNewYogaBtnClick();
 
 	}
-	@Then ("the {string} page is displayed")
+	@Then ("The {string} page is displayed")
 	public void yoga_collection_page_displayed(String pageDisplayed)
 	{
 		homePg.yogaCollectionPgDisplayed(pageDisplayed);
 	}
 
-	@Then("^Click on the required (.*)$")
-	public void click_on_the_required_gwen_drawstring_bike_short(String yogaPant) {
+	@And("^User clicks on the required (.*)$")
+	public void click_on_the_required_product(String yogaPant) {
 		homePg.selectItem(yogaPant);
 	}
 
-	@And("^the required (.*) page is displayed$")
-	public void the_required_gwen_drawstring_bike_short_page_is_displayed(String yogaPant) {
-		homePg.selectedItemPgDisplayed(yogaPant);
+	@And("^The required (.*) page is displayed$")
+	public void the_required_product_page_is_displayed(String yogaPant) {
+		Assert.assertTrue(homePg.selectedItemPgDisplayed(yogaPant));
 		homePg.captureDetails();
 	}
 
-	@And("^Select (.*) and (.*)$")
+	@And("^User selects (.*) and (.*)$")
 	public void select_size_and_colour(String size,String colour) {
 		homePg.selectSize(size);
 		homePg.selectColour(colour);
 
 	}
-	@And("Click on Add to card button")
+	@And("User clicks on Add to card button")
 	public void click_on_add_to_card_button() {
 		homePg.clickAddCart();
 	}
-	@Then("button text changes to Added")
+	@Then("Button text changes to Added")
 	public void button_text_changes_to_added() {
 		Assert.assertTrue(homePg.btnTextChangesToAdded());
 	}
-	@Then("User should scroll to the top")
+	@And("User should scroll to the top")
 	public void user_should_scroll_to_the_top() {
 		homePg.scrollToCart();
 	}
-	@Then("Click on cart")
+	@And("User clicks on cart")
 	public void click_on_cart()  {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		homePg.clickCart();
 	}
-	@Then("Click on proceed to checkout button")
+	@And("User clicks on proceed to checkout button")
 	public void click_on_proceed_to_checkout_button() {
 		homePg.clickCheckOutBtn();
 	}
-	@Then("checkout page is displayed")
+	@Then("Checkout page is displayed")
 	public void checkout_page_is_displayed() {
 		Assert.assertTrue("Checkout page is not displayed..",checkOutPg.checkOutPageDisplayed());
 
 	}
-	@And ("Click on add new address")
+	@And ("User clicks on add new address")
 	public void click_new_address_Button() throws InterruptedException 
 	{
 		checkOutPg.clickNewAddressBtn();
 	}
-	@And ("the shipping address pop-up appears")
+	@And ("The shipping address pop-up appears")
 	public void shipping_address_pop_up_displays()
 	{
 		Assert.assertTrue(checkOutPg.shipingAdPopUpShowsUp());
 
 	}
-	@Then("^user fills in all the parameters (.*),(.*),(.*),(.*),(.*),(.*) and (.*)$")
+	@And("^User fills in all the parameters (.*),(.*),(.*),(.*),(.*),(.*) and (.*)$")
 	public void user_fills_in_all_the_parameters(String company,String streetAddress,String city,String state,String zip,String country,String phoneNumber) throws InterruptedException {
 		checkOutPg.enterCompanyName(company);
 
@@ -111,12 +105,12 @@ public class ExistigUserCheckOutCheck extends TestBase{
 		checkOutPg.enterPhnNumb(phoneNumber);
 
 	}
-	@And ("Click on ship here")
+	@And ("User clicks on ship here")
 	public void click_ship_here() {
 		checkOutPg.clickShipHere();
 	}
 
-	@When("Clicked on next button")
+	@When("User clicks next button")
 	public void clicked_on_next_button() {
 		checkOutPg.clickNextBtn();
 	}
@@ -128,7 +122,7 @@ public class ExistigUserCheckOutCheck extends TestBase{
 		homePg.captureDetails2();
 	}
 
-	@Then("click on place order")
+	@And("User clicks on place order")
 	public void click_on_place_order() throws InterruptedException {
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.action.action-edit")));

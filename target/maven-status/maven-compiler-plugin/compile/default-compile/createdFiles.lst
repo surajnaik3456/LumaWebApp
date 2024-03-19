@@ -1,3 +1,4 @@
+Pages\ProductPage.class
 TestBase\TestBase.class
 Pages\OrderSuccessPage.class
 Pages\MyAccountPage.class

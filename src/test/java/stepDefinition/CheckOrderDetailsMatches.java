@@ -36,7 +36,7 @@ public class CheckOrderDetailsMatches extends TestBase {
 	public void click_my_orders_button() {
 		myAccountPg.clickMyOrders();
 	}
-	@Then("my orders page is displayed")
+	@And("my orders page is displayed")
 	public void my_orders_page_is_displayed() {
 		Assert.assertTrue("My orders page is not displayed", myAccountPg.myOrderPgDisplayed());
 	}

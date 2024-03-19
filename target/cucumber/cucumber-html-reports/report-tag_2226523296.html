@@ -74,7 +74,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>No Name (add projectName to cucumber-reporting.properties)</td>
-      <td>06 Mar 2024, 18:53</td>
+      <td>19 Mar 2024, 23:47</td>
     </tr>
   </tbody>
 </table>
@@ -127,19 +127,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@Regression</td>
-          <td      class="passed"    >9</td>
+          <td      class="passed"    >6</td>
+          <td      class="failed"    >1</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
-          <td >0</td>
-          <td class="total">9</td>
+          <td class="total">7</td>
 
-          <td  class="passed"    >1</td>
           <td >0</td>
+          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="20632371100">20.632</td>
-          <td class="passed">Passed</td>
+          <td class="duration" data-value="11355771400">11.355</td>
+          <td class="failed">Failed</td>
         </tr>
         </tbody>
 
@@ -171,26 +171,26 @@ $(document).ready(function() {
 <div class="element">
     <div class="indention">
       <b>Feature:</b>
-      <a href="report-feature_2699231743.html">Verify compare products functionality</a>
+      <a href="report-feature_2386571801.html">Verify search products functionality</a>
     </div>
 
 
 <div class="tags indention">
     <b>Tags:</b>
-       <a href="report-tag_3891017129.html">@CheckCompareProductsFunctionality</a>
+       <a href="report-tag_3529630010.html">@CheckSearchFunctionality</a>
        <a href="report-tag_2226523296.html">@Regression</a>
-       <a href="report-tag_3011670944.html">@CheckCompareProducts</a>
+       <a href="report-tag_3034010542.html">@CheckProductSearch</a>
 </div>
 
 
-  <span class="lead-duration duration">20.632</span>
+  <span class="lead-duration duration">11.355</span>
 
 
-  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
 
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Scenario Outline</span>
-  <span class="name">Verify user is able to Compare the products</span>
+  <span class="name">Verify user is able to search a product by entering keywords in the search bar</span>
 
 
      <i class="chevron fa fa-fw"></i>
@@ -199,7 +199,7 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details ">
+  <div id="element-1" class="collapse collapsable-details  in ">
 
 
   <div class="inner-level hooks-element-before">
@@ -221,7 +221,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">Hooks.Hooks.browserSetup()</span>
 
-  <span class="lead-duration duration">3.857</span>
+  <span class="lead-duration duration">12.375</span>
 
           </div>
 
@@ -238,9 +238,9 @@ $(document).ready(function() {
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-3">
+  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-3">
 
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -250,42 +250,15 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details ">
+  <div id="steps-3" class="inner-level collapse collapsable-details  in ">
       <div class="step">
 
 
 <div class="brief step-name-Given passed">
   <span class="keyword indention">Given</span>
-  <span class="name">User is logged in with email <span class="argument">&quot;Test121@yopmail.com&quot;</span> and password <span class="argument">&quot;Test12345&quot;</span></span>
+  <span class="name">User is logged in with email <span class="argument">&quot;Tester0001@yopmail.com&quot;</span> and password <span class="argument">&quot;Test12345&quot;</span></span>
 
-  <span class="lead-duration duration">4.656</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-And passed">
-  <span class="keyword indention">And</span>
-  <span class="name">User scrolls all the way down to hot seller section</span>
-
-  <span class="lead-duration duration">0.035</span>
+  <span class="lead-duration duration">5.086</span>
 
 </div>
 
@@ -310,36 +283,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
-  <span class="name">Clicks on three bar button to add first <span class="argument">Radiant Tee</span> to compare list</span>
+  <span class="name">User clicks on search bar</span>
 
-  <span class="lead-duration duration">2.037</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-Then passed">
-  <span class="keyword indention">Then</span>
-  <span class="name">You added product <span class="argument">Radiant Tee</span> to the comparison list shows up</span>
-
-  <span class="lead-duration duration">0.219</span>
+  <span class="lead-duration duration">0.060</span>
 
 </div>
 
@@ -364,9 +310,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
-  <span class="name">Clicks on three bar button to add secound <span class="argument">Breathe-Easy Tank</span> to compare list</span>
+  <span class="name">Enter required product <span class="argument">tshirt</span></span>
 
-  <span class="lead-duration duration">1.934</span>
+  <span class="lead-duration duration">0.045</span>
 
 </div>
 
@@ -391,36 +337,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
-  <span class="name">You added secound product <span class="argument">Breathe-Easy Tank</span> to the comparison list shows up</span>
+  <span class="name">Suggestions appears with <span class="argument">tshirt</span> as initials</span>
 
-  <span class="lead-duration duration">0.247</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-When passed">
-  <span class="keyword indention">When</span>
-  <span class="name">Click compare products</span>
-
-  <span class="lead-duration duration">2.310</span>
+  <span class="lead-duration duration">1.482</span>
 
 </div>
 
@@ -445,9 +364,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
-  <span class="name">User gets directed to <span class="argument">&quot;Compare Products&quot;</span> page</span>
+  <span class="name">User selects <span class="argument">&quot; tshirt man&quot;</span></span>
 
-  <span class="lead-duration duration">0.051</span>
+  <span class="lead-duration duration">2.578</span>
 
 </div>
 
@@ -472,9 +391,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
-  <span class="name">Check the products added <span class="argument">Radiant Tee</span> and <span class="argument">Breathe-Easy Tank</span> to the list are same products user has added by comparing name,SKU and description</span>
+  <span class="name">Search results page for <span class="argument">&quot;tshirt man&quot;</span> appears</span>
 
-  <span class="lead-duration duration">9.139</span>
+  <span class="lead-duration duration">0.039</span>
 
 </div>
 
@@ -482,6 +401,50 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-And failed">
+  <span class="keyword indention">And</span>
+  <span class="name">Checks if the SKU value for all the resulted product starts with <span class="argument">&quot;M&quot;</span></span>
+
+  <span class="lead-duration duration">2.062</span>
+
+</div>
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-4">
+          <a>java.lang.AssertionError</a>
+      </div>
+      <div id="msg-4" class="collapse collapsable-details  in ">
+        <pre>java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at stepDefinition.SearchFunctionalityCheck.checks_if_the_sku_value_starts_with(SearchFunctionalityCheck.java:46)
+	at &#10045;.Checks if the SKU value for all the resulted product starts with &quot;M&quot;(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/checkSearchFunctionality.feature:12)
+</pre>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -501,7 +464,7 @@ $(document).ready(function() {
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-4">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
 
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -513,13 +476,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-4" class="inner-level collapse collapsable-details ">
+    <div id="after-5" class="inner-level collapse collapsable-details ">
         <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
               <span class="location name">Hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
 
-  <span class="lead-duration duration">0.166</span>
+  <span class="lead-duration duration">0.363</span>
 
           </div>
 
@@ -528,6 +491,21 @@ $(document).ready(function() {
 
 
 
+  <div class="embeddings inner-level">
+  <div class="embedding indention">
+    <div data-toggle="collapse" data-target="#embedding-6" class="collapsable-control">
+      <a>Verify user is able to search a product by entering keywords in the search bar</a>
+      <a href="embeddings/embedding_1987327041.png" download target="_blank">
+        <span class="download-button glyphicon glyphicon-download-alt"></span>
+      </a>
+    </div>
+    <div id="embedding-6" class="collapse collapsable-details ">
+      <div class="embedding-content">
+        <img src="embeddings/embedding_1987327041.png">
+      </div>
+    </div>
+  </div>
+  </div>
 
         </div>
     </div>

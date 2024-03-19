@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -23,7 +23,7 @@ public class HomePage extends TestBase{
 	By shopNewYogaBtn = By.cssSelector("span.action.more.button");
 	By yogaCollectionPg = By.xpath("//span[text()='New Luma Yoga Collection']");
 	By addToCart = By.xpath("//span[text()='Add to Cart']");
-	By cartCount = By.xpath("//span[text()='1']");
+	By cartCount = By.xpath("//span[@class='counter-number']");
 	By cart = By.cssSelector("a.action.showcart");
 	By checkoutBtn = By.cssSelector("button#top-cart-btn-checkout");
 	By placeOrder = By.xpath("//span[text()='Place Order']");
@@ -46,8 +46,9 @@ public class HomePage extends TestBase{
 	By priceElement = By.xpath("//span[@class='price']");
 	By productItems = By.xpath("//a[@class='product-item-link']");
 
-	public static String price1=null;
-	public static String price2=null;
+	public static boolean isSortedByPrice;
+	public static boolean startsWithInitial;
+	public static boolean expectedSku;
 	public static List<String> store1 = new ArrayList<String>();
 	public static List<String> store2 = new ArrayList<String>();
 
@@ -79,11 +80,15 @@ public class HomePage extends TestBase{
 	}
 	public void selectItem(String yogaPant)
 	{
+		driver.navigate().refresh();
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//a[contains(text(),'"+yogaPant+"')]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'"+yogaPant+"')]")));
 		driver.findElement(By.xpath("//a[contains(text(),'"+yogaPant+"')]")).click();
 	}
-	public void selectedItemPgDisplayed(String yogaPant)
+	public boolean selectedItemPgDisplayed(String yogaPant)
 	{
-		driver.findElement(By.xpath("//span[contains(text(),'"+yogaPant+"')]")).isDisplayed();
+		return driver.findElement(By.xpath("//span[contains(text(),'"+yogaPant+"')]")).isDisplayed();
 	}
 	public void selectSize(String size)
 	{
@@ -110,18 +115,17 @@ public class HomePage extends TestBase{
 	}
 	public void clickCart()
 	{
-		wait.until(ExpectedConditions.elementToBeClickable(cartCount));
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-
 			e.printStackTrace();
 		}
-
+		wait.until(ExpectedConditions.elementToBeClickable(cartCount));	
 		driver.findElement(cart).click();
 	}
 	public void clickCheckOutBtn()
 	{
+		wait.until(ExpectedConditions.elementToBeClickable(checkoutBtn));
 		driver.findElement(checkoutBtn).click();
 	}
 	public void clickPlaceOrderBtn() 
@@ -150,25 +154,23 @@ public class HomePage extends TestBase{
 	{
 
 		List<WebElement> afterFilter = driver.findElements(priceElement);
-		boolean isSorted = true;
+		 isSortedByPrice = true;
 		for (int i = 0; i < afterFilter.size(); i++) {
-			price1 = afterFilter.get(i).getText().replace("$", "").trim();
-			price2 = afterFilter.get(i + 1).getText().replace("$", "").trim();
+			String price1 = afterFilter.get(i).getText().replace("$", "").trim();
+			String price2 = afterFilter.get(i + 1).getText().replace("$", "").trim();
 
 			if (Double.parseDouble(price1) > Double.parseDouble(price2)) {
-				isSorted = false;
+				isSortedByPrice = false;
 				break;
 			} else if (Double.parseDouble(price1) == Double.parseDouble(price2)) {
 				continue; 
 			}
 		}
-		if (isSorted) {
+		if (isSortedByPrice) {
 			System.out.println("Products are sorted by price (low to high).");
 		} else {
 			System.out.println("Products are not sorted by price (low to high).");
 		}
-		System.out.println(price1);
-		System.out.println(price2);
 	}
 	public void sortingByProductName()
 	{
@@ -178,7 +180,7 @@ public class HomePage extends TestBase{
 
 			e.printStackTrace();
 		}
-		List<String> store1 = new ArrayList<String>();
+		store1 = new ArrayList<String>();
 		List<WebElement> Sort1= driver.findElements(productItems);
 
 		for(WebElement store:Sort1)
@@ -187,7 +189,7 @@ public class HomePage extends TestBase{
 			store1.add(data1);
 		}
 
-		List<String> store2 = new ArrayList<String>();
+		store2 = new ArrayList<String>();
 		List<WebElement> Sort2= driver.findElements(productItems);
 
 		for(WebElement stor:Sort2)
@@ -216,19 +218,22 @@ public class HomePage extends TestBase{
 	{
 		driver.findElement(searchField).sendKeys(name);
 	}
-	public void checkSuggestionWithInitial(String initial)
+	public void checkSuggestionWithInitial(String name)
 	{
 		List<WebElement> suggestion = driver.findElements(suggestionFrameWebElements);
-		boolean allStartsWithInitial =true;
+		startsWithInitial =true;
 		for(WebElement suggested : suggestion )
 		{
-			if (!suggested.getText().startsWith(initial))
+			if (!suggested.getText().startsWith(name))
 			{
-				allStartsWithInitial =false;
+				startsWithInitial =false;
 				break;
 			}
+			else
+			{
+				System.out.println("Suggestion wont start with initial" +name);
+			}
 		}
-		Assert.assertTrue("All suggestions start with the initial: " +initial, allStartsWithInitial);
 	}
 	public void selectsOption(String selectSuggestion)
 	{
@@ -243,7 +248,7 @@ public class HomePage extends TestBase{
 	public void checkSkuNumber(String category) 
 	{
 		List<WebElement> resultedProducts = driver.findElements(resultPgProducts);
-		boolean expectedSku = true;
+		expectedSku = true;
 
 		for (int i = 0; i < resultedProducts.size(); i++) {
 			WebElement check = resultedProducts.get(i);
@@ -260,13 +265,13 @@ public class HomePage extends TestBase{
 
 			if (!driver.findElement(productSku).getText().startsWith(category)) {
 				expectedSku = false;
+				System.out.println("SKU value wont start with :"+category);
 				break;
 			} else {
 				driver.navigate().back();
 			}
-
+		
 		}
-		Assert.assertTrue("The SKU values of the resulted products do not start with 'M'", expectedSku);
 	}
 	public void scrollToHotSellerSection()
 	{

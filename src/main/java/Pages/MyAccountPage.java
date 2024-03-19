@@ -1,13 +1,17 @@
 package Pages;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import TestBase.TestBase;
 
 public class MyAccountPage extends TestBase{
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	By myAccountPg = By.cssSelector("h1.page-title");
 	By myOrder = By.xpath("//a[text()='My Orders']");
 	By myOrderPg = By.xpath("//span[text()='My Orders']");
@@ -39,11 +43,12 @@ public class MyAccountPage extends TestBase{
 	}
 	public void clickViewOrderForOrderNo()
 	{
+		wait.until(ExpectedConditions.elementToBeClickable(recentOrderNoViewOrder));
 		driver.findElement(recentOrderNoViewOrder).click();
-
 	}
 	public void verifyDetails()
 	{
+		
 		WebElement productNm = driver.findElement(productNameInOrderPg);
 		WebElement sku = driver.findElement(skuNoInOrderPg);
 		WebElement qty = driver.findElement(productQuantityInOrderPg);
@@ -52,7 +57,7 @@ public class MyAccountPage extends TestBase{
 		WebElement productOrderNo = driver.findElement(productOrderNoInOrderPg);
 		System.out.println(HomePage.productDetail);
 		productDetailsInOrderPg.add(productNm.getText());
-		productDetailsInOrderPg.add(sku.getText().substring(0, 5));
+		productDetailsInOrderPg.add(sku.getText().substring(0, 4));
 		productDetailsInOrderPg.add(qty.getText());
 		productDetailsInOrderPg.add(paymentMethod.getText());
 		productDetailsInOrderPg.add(subTotalPrice.getText().replace("$", "").trim());
