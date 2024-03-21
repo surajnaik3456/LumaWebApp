@@ -74,7 +74,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>No Name (add projectName to cucumber-reporting.properties)</td>
-      <td>19 Mar 2024, 23:47</td>
+      <td>21 Mar 2024, 16:21</td>
     </tr>
   </tbody>
 </table>
@@ -127,9 +127,9 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">@CheckSearchFunctionality</td>
-          <td      class="passed"    >6</td>
+          <td      class="passed"    >4</td>
           <td      class="failed"    >1</td>
-          <td >0</td>
+          <td     class="skipped"   >2</td>
           <td >0</td>
           <td >0</td>
           <td class="total">7</td>
@@ -138,7 +138,7 @@ $(document).ready(function() {
           <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="11355771400">11.355</td>
+          <td class="duration" data-value="22792870800">22.792</td>
           <td class="failed">Failed</td>
         </tr>
         </tbody>
@@ -183,7 +183,7 @@ $(document).ready(function() {
 </div>
 
 
-  <span class="lead-duration duration">11.355</span>
+  <span class="lead-duration duration">22.792</span>
 
 
   <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
@@ -221,7 +221,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">Hooks.Hooks.browserSetup()</span>
 
-  <span class="lead-duration duration">12.375</span>
+  <span class="lead-duration duration">17.734</span>
 
           </div>
 
@@ -258,7 +258,7 @@ $(document).ready(function() {
   <span class="keyword indention">Given</span>
   <span class="name">User is logged in with email <span class="argument">&quot;Tester0001@yopmail.com&quot;</span> and password <span class="argument">&quot;Test12345&quot;</span></span>
 
-  <span class="lead-duration duration">5.086</span>
+  <span class="lead-duration duration">7.380</span>
 
 </div>
 
@@ -285,7 +285,7 @@ $(document).ready(function() {
   <span class="keyword indention">When</span>
   <span class="name">User clicks on search bar</span>
 
-  <span class="lead-duration duration">0.060</span>
+  <span class="lead-duration duration">0.070</span>
 
 </div>
 
@@ -312,7 +312,7 @@ $(document).ready(function() {
   <span class="keyword indention">And</span>
   <span class="name">Enter required product <span class="argument">tshirt</span></span>
 
-  <span class="lead-duration duration">0.045</span>
+  <span class="lead-duration duration">0.051</span>
 
 </div>
 
@@ -339,61 +339,7 @@ $(document).ready(function() {
   <span class="keyword indention">Then</span>
   <span class="name">Suggestions appears with <span class="argument">tshirt</span> as initials</span>
 
-  <span class="lead-duration duration">1.482</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-And passed">
-  <span class="keyword indention">And</span>
-  <span class="name">User selects <span class="argument">&quot; tshirt man&quot;</span></span>
-
-  <span class="lead-duration duration">2.578</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-Then passed">
-  <span class="keyword indention">Then</span>
-  <span class="name">Search results page for <span class="argument">&quot;tshirt man&quot;</span> appears</span>
-
-  <span class="lead-duration duration">0.039</span>
+  <span class="lead-duration duration">15.007</span>
 
 </div>
 
@@ -418,9 +364,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-And failed">
   <span class="keyword indention">And</span>
-  <span class="name">Checks if the SKU value for all the resulted product starts with <span class="argument">&quot;M&quot;</span></span>
+  <span class="name">User selects <span class="argument">&quot; tshirt man&quot;</span></span>
 
-  <span class="lead-duration duration">2.062</span>
+  <span class="lead-duration duration">0.281</span>
 
 </div>
 
@@ -432,19 +378,79 @@ $(document).ready(function() {
   <div class="inner-level">
     <div class="message indention">
       <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-4">
-          <a>java.lang.AssertionError</a>
+          <a>org.openqa.selenium.NoSuchElementException:</a>
       </div>
       <div id="msg-4" class="collapse collapsable-details  in ">
-        <pre>java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:87)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertTrue(Assert.java:53)
-	at stepDefinition.SearchFunctionalityCheck.checks_if_the_sku_value_starts_with(SearchFunctionalityCheck.java:46)
-	at &#10045;.Checks if the SKU value for all the resulted product starts with &quot;M&quot;(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/checkSearchFunctionality.feature:12)
+        <pre>org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //span[text()=' tshirt man']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at Pages.HomePage.selectsOption(HomePage.java:237)
+	at stepDefinition.SearchFunctionalityCheck.user_selects(SearchFunctionalityCheck.java:35)
+	at &#10045;.User selects &quot; tshirt man&quot;(file:///C:/Users/User/Desktop/Luma/src/test/resources/Feature/checkSearchFunctionality.feature:10)
 </pre>
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-Then skipped">
+  <span class="keyword indention">Then</span>
+  <span class="name">Search results page for <span class="argument">&quot;tshirt man&quot;</span> appears</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-And skipped">
+  <span class="keyword indention">And</span>
+  <span class="name">Checks if the SKU value for all the resulted product starts with <span class="argument">&quot;M&quot;</span></span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
 
 
 
@@ -464,9 +470,9 @@ $(document).ready(function() {
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-5">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#after-5">
 
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
 
@@ -476,36 +482,56 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-5" class="inner-level collapse collapsable-details ">
+    <div id="after-5" class="inner-level collapse collapsable-details  in ">
         <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">After</span>
               <span class="location name">Hooks.Hooks.tearDown(io.cucumber.java.Scenario)</span>
 
-  <span class="lead-duration duration">0.363</span>
+  <span class="lead-duration duration">0.069</span>
 
           </div>
 
 
 
-
-
-
-  <div class="embeddings inner-level">
-  <div class="embedding indention">
-    <div data-toggle="collapse" data-target="#embedding-6" class="collapsable-control">
-      <a>Verify user is able to search a product by entering keywords in the search bar</a>
-      <a href="embeddings/embedding_1987327041.png" download target="_blank">
-        <span class="download-button glyphicon glyphicon-download-alt"></span>
-      </a>
-    </div>
-    <div id="embedding-6" class="collapse collapsable-details ">
-      <div class="embedding-content">
-        <img src="embeddings/embedding_1987327041.png">
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-6">
+          <a>Error message</a>
+      </div>
+      <div id="msg-6" class="collapse collapsable-details  in ">
+        <pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: MicrosoftEdge=122.0.2365.92)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [eb23b8d447f6ad5e5547e33d342b77fe, screenshot {}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 122.0.2365.92, fedcm:accounts: true, ms:edgeOptions: {debuggerAddress: localhost:58210}, msedge: {msedgedriverVersion: 122.0.2365.92 (908657ec17be..., userDataDir: C:\Users\User\AppData\Local...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58210/devtoo..., se:cdpVersion: 122.0.2365.92, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: eb23b8d447f6ad5e5547e33d342b77fe
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:592)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:596)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:322)
+	at TestBase.TestBase.quitBrowser(TestBase.java:46)
+	at Hooks.Hooks.tearDown(Hooks.java:21)
+</pre>
       </div>
     </div>
   </div>
-  </div>
+
+
+
+
 
         </div>
     </div>

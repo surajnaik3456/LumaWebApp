@@ -1,6 +1,5 @@
 package Pages;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import TestBase.TestBase;
+import java.time.Duration;
 
 public class HomePage extends TestBase{
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -227,11 +227,8 @@ public class HomePage extends TestBase{
 			if (!suggested.getText().startsWith(name))
 			{
 				startsWithInitial =false;
+				System.out.println("Suggestion wont start with initial :" +name);
 				break;
-			}
-			else
-			{
-				System.out.println("Suggestion wont start with initial" +name);
 			}
 		}
 	}

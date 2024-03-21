@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: Verify search products functionality
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 24.236 s <<< FAILURE! - in Verify search products functionality
-Verify user is able to search a product by entering keywords in the search bar(Verify search products functionality)  Time elapsed: 24.236 s  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 18.493 s <<< FAILURE! - in Verify search products functionality
+Verify user is able to search a product by entering keywords in the search bar(Verify search products functionality)  Time elapsed: 18.493 s  <<< FAILURE!
 java.lang.AssertionError
 
