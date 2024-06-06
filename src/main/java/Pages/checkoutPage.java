@@ -1,6 +1,5 @@
 package Pages;
 
-import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import TestBase.TestBase;
+import java.time.Duration;
 
 public class checkoutPage extends TestBase {
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -29,7 +29,7 @@ public class checkoutPage extends TestBase {
 	By placeOrder = By.xpath("//span[text()='Place Order']");
 	By orderNumb = By.cssSelector("a.order-number");
 	By paymentPg = By.xpath("//div[text()='Payment Method']");
-	
+	//
 	
 	
 	public boolean checkOutPageDisplayed()

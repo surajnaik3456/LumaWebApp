@@ -1,7 +1,5 @@
 package stepDefinition;
 
-import java.time.Duration;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import Pages.HomePage;
 import Pages.LoginPage;
 import TestBase.TestBase;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import java.time.Duration;
 
 public class CommonBackgroundSteps extends TestBase {
 	
@@ -21,7 +23,7 @@ public class CommonBackgroundSteps extends TestBase {
 	@Given("User is on the home page")
 	public void user_is_on_the_home_page() {
 	    Assert.assertTrue("Homepage is been displayed", homePg.verifyLogo());
-	    
+	    System.out.print("logo verified..");
 	}
 	
 	@And("the page title is {string}")

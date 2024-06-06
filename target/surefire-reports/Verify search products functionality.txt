@@ -1,7 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: Verify search products functionality
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 18.493 s <<< FAILURE! - in Verify search products functionality
-Verify user is able to search a product by entering keywords in the search bar(Verify search products functionality)  Time elapsed: 18.493 s  <<< FAILURE!
-java.lang.AssertionError
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 25.021 s <<< FAILURE! - in Verify search products functionality
+Verify user is able to search a product by entering keywords in the search bar(Verify search products functionality)  Time elapsed: 25.021 s  <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not start a new session. Response code 500. Message: session not created: Microsoft Edge failed to start: crashed.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from msedge location C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe is no longer running, so msedgedriver is assuming that msedge has crashed.) 
+Host info: host: 'DESKTOP-OSV3JAI', ip: '192.168.0.105'
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: MicrosoftEdge, ms:edgeOptions: {args: [], binary: C:\Program Files (x86)\Micr..., extensions: []}}]}]
+
+Verify user is able to search a product by entering keywords in the search bar(Verify search products functionality)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)" because "takeScreenshot" is null
 

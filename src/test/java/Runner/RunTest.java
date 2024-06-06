@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/Feature",
 glue = { "stepDefinition","Hooks" },
-tags = "@CheckProductSearch", 
+tags = "@NewUserCheckoutFlow", 
 monochrome = true, 
 dryRun = false,
 plugin = {

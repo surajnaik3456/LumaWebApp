@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -29,6 +30,7 @@ public class HomePage extends TestBase{
 	By placeOrder = By.xpath("//span[text()='Place Order']");
 	By sortDropdown = By.cssSelector("select#sorter");
 	By searchField = By.cssSelector("input#search");
+	By scrollBottom = By.xpath("//a[text()='Advanced Search']");
 	By hotSellersSection = By.xpath("//h2[text()='Hot Sellers']");
 	By actionCompare = By.cssSelector("a.action.compare");
 	By resultPgProducts = By.cssSelector("a.product-item-link");
@@ -61,6 +63,7 @@ public class HomePage extends TestBase{
 	}
 	public boolean verifyLogo()
 	{
+		System.out.print("logo verified..");
 		return driver.findElement(logo).isDisplayed();
 
 	}
@@ -81,8 +84,8 @@ public class HomePage extends TestBase{
 	public void selectItem(String yogaPant)
 	{
 		driver.navigate().refresh();
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//a[contains(text(),'"+yogaPant+"')]")));
+		//JavascriptExecutor js = (JavascriptExecutor)driver;
+		//js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//a[contains(text(),'"+yogaPant+"')]")));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'"+yogaPant+"')]")));
 		driver.findElement(By.xpath("//a[contains(text(),'"+yogaPant+"')]")).click();
 	}
@@ -111,16 +114,22 @@ public class HomePage extends TestBase{
 	public void scrollToCart()
 	{
 		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(cart));
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(scrollBottom));
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(cartCount));	
 	}
 	public void clickCart()
 	{
+		Actions a = new Actions(driver);
+		WebElement cartCounter = driver.findElement(cartCount);
 		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		wait.until(ExpectedConditions.elementToBeClickable(cartCount));	
+		}
+		catch (TimeoutException e) {
+			a.moveToElement(cartCounter);
+			a.click(driver.findElement(cart));
+		}
+		a.moveToElement(cartCounter);
+		//a.doubleClick();
 		driver.findElement(cart).click();
 	}
 	public void clickCheckOutBtn()

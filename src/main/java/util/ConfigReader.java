@@ -10,7 +10,7 @@ public class ConfigReader {
 	
 	public static Properties getPropertyObject() throws IOException
 	{
-		FileInputStream fs = new FileInputStream("C:\\Users\\User\\Desktop\\Luma\\src\\main\\resources\\config\\testData.properties");
+		FileInputStream fs = new FileInputStream(System.getProperty("user.dir")+"/src/main/resources/config/testData.properties");
 		Properties prop = new Properties();
 		prop.load(fs);
 		return prop;

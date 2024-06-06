@@ -16,21 +16,20 @@ public class TestBase {
 
 	public static WebDriver driver;
 
-	public void browserLaunch() throws IOException
-	{
+	public void browserLaunch() throws IOException {
 		switch (ConfigReader.getBrowser().toLowerCase()) {
-	    case "chrome":
-	        driver = new ChromeDriver();
-	        break;
-	    case "firefox":
-	        driver = new FirefoxDriver();
-	        break;
-	    case "edge":
-	        driver = new EdgeDriver();
-	        break;
-	    default:
-	        System.out.println("Provide a valid browser..");
-	}
+		case "chrome":
+			driver = new ChromeDriver();
+			break;
+		case "firefox":
+			driver = new FirefoxDriver();
+			break;
+		case "edge":
+			driver = new EdgeDriver();
+			break;
+		default:
+			System.out.println("Provide a valid browser..");
+		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
 		driver.manage().window().maximize();
@@ -38,12 +37,11 @@ public class TestBase {
 
 	}
 
-	public void quitBrowser(Scenario scenario)
-	{
+	public void quitBrowser(Scenario scenario) {
 		String scenarioName = scenario.getName();
-		if(scenario.isFailed()) {
+		if (scenario.isFailed()) {
 			TakesScreenshot takeScreenshot = (TakesScreenshot) driver;
-			byte[] screenshot =	takeScreenshot.getScreenshotAs(OutputType.BYTES);
+			byte[] screenshot = takeScreenshot.getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", scenarioName);
 		}
 		driver.quit();
